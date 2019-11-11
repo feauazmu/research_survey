@@ -41,12 +41,12 @@ class Player(BasePlayer):
             [3, 'Other'],
         ],
         widget = widgets.RadioSelect,
-        blank = True,
+        blank = False,
     )
 
     age = models.IntegerField(
         label = "What is your age?",
         min = 18,
         max = 130,
-        blank = True,
+        blank = False,
     )
