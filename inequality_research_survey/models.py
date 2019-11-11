@@ -32,4 +32,21 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    # Demographic questions.
+    gender = models.IntegerField(
+        label = "What is your gender?",
+        choices = [
+            [1, 'Male'],
+            [2, 'Female'],
+            [3, 'Other'],
+        ],
+        widget = widgets.RadioSelect,
+        blank = True,
+    )
+
+    age = models.IntegerField(
+        label = "What is your age?",
+        min = 18,
+        max = 130,
+        blank = True,
+    )
