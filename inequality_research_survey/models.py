@@ -106,3 +106,10 @@ class Player(BasePlayer):
     bzsg_6 = seven_options_likert_scale("Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden.")
     bzsg_7 = seven_options_likert_scale("Wenn ein Mensch viel für andere tut verliert er.")
     bzsg_8 = seven_options_likert_scale("Der Wohlstand weniger wird auf Kosten vieler erlangt.")
+
+    # Perceptions on redistribution questions
+
+    redistribution_1 = seven_options_likert_scale("Der Staat trägt die Verantwortug die Unterschiede zwischen Menschen mit hohem und Menschen mit niedrigerem Einkommen zu verringern.")
+    redistribution_2 = seven_options_likert_scale("Der Staat sollte jedem der arbeiten möchte einen Arbeitsplatz bieten.")
+    redistribution_3 = seven_options_likert_scale("Der Staat sollte jeden mit einem garantierten Grundeinkommen versorgen.")
+    redistribution_4 = seven_options_likert_scale("Wir brauchen größere Einkommensunterschiede um Anreize für individuelles Bemühen zu schaffen.")
