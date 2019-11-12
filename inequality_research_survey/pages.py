@@ -5,7 +5,7 @@ from .models import Constants
 
 class DemographicQuestions(Page):
     form_model = 'player'
-    form_fields = ['gender', 'age']
+    form_fields = ['gender', 'age', 'nationality', 'education']
 
 class Beliefs(Page):
     form_model = 'player'

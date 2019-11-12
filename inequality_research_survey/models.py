@@ -49,22 +49,47 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # Demographic questions.
     gender = models.IntegerField(
-        label = "What is your gender?",
+        label = "Geschlecht:",
         choices = [
-            [1, 'Male'],
-            [2, 'Female'],
-            [3, 'Other'],
+            [1, 'männlich'],
+            [2, 'weiblich'],
+            [3, 'divers'],
         ],
         widget = widgets.RadioSelect,
         blank = False,
     )
 
     age = models.IntegerField(
-        label = "What is your age?",
+        label = "Alter:",
         min = 18,
         max = 130,
         blank = False,
     )
+
+    nationality = models.IntegerField(
+        label = "Nationalität:",
+        choices = [
+            [1, 'deutsch'],
+            [2, 'EU-Bürger'],
+            [3, 'nicht EU-Bürger'],
+        ],
+        widget = widgets.RadioSelect,
+        blank = False,
+    )
+
+    education = models.IntegerField(
+        label = "Was ist ihr höchster Bildungsabschluss:",
+        choices = [
+            [1, 'Hochschulabschluss'],
+            [2, 'Berufsausbildung'],
+            [3, 'Abitur'],
+            [4, 'Realschulabschluss'],
+            [5, 'Keiner']
+        ],
+        widget = widgets.RadioSelect,
+        blank = False,
+    )
+
 
     """ Items of the Belief in Zero-Sum Game (BZSG) scale questionnaire.
     Taken from: Różycka-Tran, J., Boski, P., & Wojciszke, B. (2015).
