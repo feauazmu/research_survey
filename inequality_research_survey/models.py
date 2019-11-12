@@ -98,11 +98,11 @@ class Player(BasePlayer):
 
     """
 
-    bzsg_1 = seven_options_likert_scale("Successes of some people are usually failures of others.")
-    bzsg_2 = seven_options_likert_scale("If someone gets richer, it means that somebody else gets poorer.")
-    bzsg_3 = seven_options_likert_scale("Life is so devised that when somebody gains, others have to lose.")
-    bzsg_4 = seven_options_likert_scale("In most situations, interests of different people are inconsistent.")
-    bzsg_5 = seven_options_likert_scale("Life is like tennis game — A person wins only when others lose.")
-    bzsg_6 = seven_options_likert_scale("When some people are getting poorer, it means that other people are getting richer.")
-    bzsg_7 = seven_options_likert_scale("When someone does much for others, he or she loses.")
-    bzsg_8 = seven_options_likert_scale("The wealth of a few is acquired at the expense of many.")
+    bzsg_1 = seven_options_likert_scale("Erfolge einiger Menschen sind normalerweise das Versagen anderer Menschen.")
+    bzsg_2 = seven_options_likert_scale("Wird jemand reich, heißt es dass eine andere Person ärmer wird.")
+    bzsg_3 = seven_options_likert_scale("Das Leben ist so gestaltet, dass wenn jemand gewinnt andere verlieren müssen.")
+    bzsg_4 = seven_options_likert_scale("In den meisten Situationen sind die Interessen unterschiedlicher Menschen nicht zu vereinbaren.")
+    bzsg_5 = seven_options_likert_scale("Das Leben ist wie ein Tennisspiel - man gewinnt nur wenn andere verlieren.")
+    bzsg_6 = seven_options_likert_scale("Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden.")
+    bzsg_7 = seven_options_likert_scale("Wenn ein Mensch viel für andere tut verliert er.")
+    bzsg_8 = seven_options_likert_scale("Der Wohlstand weniger wird auf Kosten vieler erlangt.")
