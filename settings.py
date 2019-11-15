@@ -13,7 +13,7 @@ SESSION_CONFIGS = [
     dict(
         name='inequality_research_survey',
         display_name="Research Survey",
-        num_demo_participants=1,
+        num_demo_participants=6,
         app_sequence=['inequality_research_survey']
     ),
 ]

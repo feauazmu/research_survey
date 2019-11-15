@@ -39,14 +39,27 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
 
+    def creating_session(self):
+        import itertools
+        treatments = itertools.cycle([
+            'treatment_1',
+            'treatment_2',
+            'treatment_3',
+            'treatment_4',
+            'treatment_5',
+            'treatment_6',
+            ])
+        for p in self.get_players():
+            p.treatment = next(treatments)
 
 class Group(BaseGroup):
     pass
 
 
 class Player(BasePlayer):
+    treatment = models.StringField()
+
     # Demographic questions.
     gender = models.IntegerField(
         label = "Geschlecht:",
@@ -69,9 +82,9 @@ class Player(BasePlayer):
     nationality = models.IntegerField(
         label = "Nationalität:",
         choices = [
-            [1, 'deutsch'],
-            [2, 'EU-Bürger'],
-            [3, 'nicht EU-Bürger'],
+            [1, 'Deutschland'],
+            [2, 'anderes EU-Land'],
+            [3, 'nicht EU-Land'],
         ],
         widget = widgets.RadioSelect,
         blank = False,
