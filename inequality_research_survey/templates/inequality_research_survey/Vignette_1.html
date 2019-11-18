@@ -6,7 +6,11 @@
 
 {% block content %}
 
-   {{ statement_a }}
+   {{ statement_a }}<br><br>
+   {{ random_question}}
+   <br><br>
+   {% formfield player.random_question_1 label=question_1 %}
+   {% formfield player.random_question_2 label=question_2 %}
 
     {% next_button %}
 

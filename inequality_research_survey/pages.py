@@ -32,18 +32,33 @@ class Beliefs(Page):
     ]
 
 class Vignette_1(Page):
-
+    form_model = 'player'
+    form_fields = ['random_question_1', 'random_question_2']
 
     def vars_for_template(self):
         stream = open("fixtures/questions.yaml", 'r')
         questions = yaml.safe_load(stream)
         if self.player.treatment == "treatment_1" or self.player.treatment == "treatment_2":
             statement_a = questions.get("vignette").get("a").get("statement")
+            random_question = questions.get("vignette").get("a").get("random")
+            question_1 = questions.get("vignette").get("a").get("case_questions")[0]
+            question_2 = questions.get("vignette").get("a").get("case_questions")[1]
         elif self.player.treatment == "treatment_3" or self.player.treatment == "treatment_4":
             statement_a = questions.get("vignette").get("b").get("statement")
+            random_question = questions.get("vignette").get("b").get("random")
+            question_1 = questions.get("vignette").get("b").get("case_questions")[0]
+            question_2 = questions.get("vignette").get("b").get("case_questions")[1]
         else:
             statement_a = questions.get("vignette").get("c").get("statement")
-        return dict(statement_a = statement_a)
+            random_question = questions.get("vignette").get("c").get("random")
+            question_1 = questions.get("vignette").get("c").get("case_questions")[0]
+            question_2 = questions.get("vignette").get("c").get("case_questions")[1]
+        return dict(
+            statement_a=statement_a,
+            random_question=random_question,
+            question_1 = question_1,
+            question_2 = question_2,
+            )
 
 page_sequence = [
     DemographicQuestions,
