@@ -6,13 +6,10 @@ import yaml
 
 class DemographicQuestions(Page):
     form_model = 'player'
-    form_fields = ['gender', 'age', 'nationality', 'education']
+    form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work']
 
 class Beliefs(Page):
-    stream = open("fixtures/questions.yaml", 'r')
-    questions = yaml.safe_load(stream)
 
-    statement_a = questions.get("vignette").get("a").get("statement")
     form_model = 'player'
     form_fields = [
         # Beliefs in zero-sum game:
@@ -34,7 +31,22 @@ class Beliefs(Page):
         'redistribution_4',
     ]
 
+class Vignette_1(Page):
+
+
+    def vars_for_template(self):
+        stream = open("fixtures/questions.yaml", 'r')
+        questions = yaml.safe_load(stream)
+        if self.player.treatment == "treatment_1" or self.player.treatment == "treatment_2":
+            statement_a = questions.get("vignette").get("a").get("statement")
+        elif self.player.treatment == "treatment_3" or self.player.treatment == "treatment_4":
+            statement_a = questions.get("vignette").get("b").get("statement")
+        else:
+            statement_a = questions.get("vignette").get("c").get("statement")
+        return dict(statement_a = statement_a)
+
 page_sequence = [
     DemographicQuestions,
     Beliefs,
+    Vignette_1,
     ]

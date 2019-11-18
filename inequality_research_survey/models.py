@@ -107,6 +107,27 @@ class Player(BasePlayer):
         blank = False,
     )
 
+    field_of_work = models.IntegerField(
+        label = "In welchem Bereich sind sie beruflich tätig",
+        choices = [
+            [1, 'Land- und Forstwirtschaft, Fischerei'],
+            [2, 'Verarbeitendes Gewerbe'],
+            [3, 'Energie- und Wasserversorgung'],
+            [4, 'Baugewerbe'],
+            [5, 'Handel'],
+            [6, 'Gastgewerbe'],
+            [7, 'Finanz- und Versicherungsdienstleistungen'],
+            [8, 'Information und Kommunikation'],
+            [9, 'Kunst, Unterhaltung und Erholung'],
+            [10, 'Gesundheits und Sozialwesen'],
+            [11, 'Erziehung und Unterricht'],
+            [12, 'Erbringung von sonstigen Dienstleistungen'],
+            [13, 'Anderes'],
+        ],
+        widget = widgets.RadioSelect,
+        blank = False,
+    )
+
 
     """ Items of the Belief in Zero-Sum Game (BZSG) scale questionnaire.
     Taken from: Różycka-Tran, J., Boski, P., & Wojciszke, B. (2015).
@@ -134,4 +155,3 @@ class Player(BasePlayer):
     # Vignette questions.
 
     # Statements
-    
