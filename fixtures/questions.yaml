@@ -1,0 +1,46 @@
+---
+   bzsg:
+      - "Erfolge einiger Menschen sind normalerweise das Versagen anderer Menschen."
+      - "Wird jemand reich, heißt es dass eine andere Person ärmer wird."
+      - "Das Leben ist so gestaltet, dass wenn jemand gewinnt andere verlieren müssen."
+      - "In den meisten Situationen sind die Interessen unterschiedlicher Menschen nicht zu vereinbaren."
+      - "Das Leben ist wie ein Tennisspiel - man gewinnt nur wenn andere verlieren."
+      - "Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden."
+      - "Wenn ein Mensch viel für andere tut verliert er."
+      - "Der Wohlstand weniger wird auf Kosten vieler erlangt."
+   redistribution:
+      - "Der Staat trägt die Verantwortug die Unterschiede zwischen Menschen mit hohem und Menschen mit niedrigerem Einkommen zu verringern."
+      - "Der Staat sollte jedem der arbeiten möchte einen Arbeitsplatz bieten."
+      - "Der Staat sollte jeden mit einem garantierten Grundeinkommen versorgen."
+      - "Wir brauchen größere Einkommensunterschiede um Anreize für individuelles Bemühen zu schaffen."
+   vignette:
+      a:
+         statement: "Anna und Kathrin arbeiten beide seit kurzem für den Bonner Standort eines Immobilienmaklers. Sie wurden beide auf Grund ihrer eindrucksvollen Lebensläufe mit interessanten Praktika ausgewählt. Ihre Aufgabe besteht darin, Wohnungen einer gerade gebauten Neubausiedlung zu verkaufen."
+         random: "Am Ende des Monats hat Anna 6 Wohnungen und Kathrin 4 Wohnungen verkauft. Kathrin bekommt ihrenn monatlichen Lohn, Anna bekommt zusätzlich zu ihrem monatlichen Lohn einen Bonus von 800 Euro ausgezahlt."
+         zsg: "Anna und Kathrin wissen, dass diejenige die es schafft in einem Monat am meisten Wohnungen zu verkaufen zusätzlich zum Gehalt eine Bonuszahlung von 800 Euro erhält. Im letzten Monat hat Anna 6 und Kathrin 4 Wohnungen verkauft, somit bekommt Anna den Bonus von 800 Euro."
+         nzsg: "Anna und Kathrin wissen, dass sie am Ende des Monats zusätzlich zum Gehalt ein Bonus von 800 Euro bekommen falls sie es schaffen 5 oder mehr Wohnungen zu verkaufen. Anna verkauft 6 Wohnungen und Kathrin verkauft 4 Wohnungen. Nur Anna erhält also den Bonus von 800 Euro."
+         case_questions:
+            - "Finden Sie das gerecht?"
+            - "Würden Sie Kathrin etwas von Annas Bonus abgeben?"
+            - "Sie können den Bonus von 800 Euro zwischen Anna und Kathrin verteilen. Wie würden Sie das Geld verteilen?"
+            - "Wie würden Sie die 800 Euro verteilen, wenn Anna 6 jedoch Kathrin nur 2 Wohnungen verkauft hätte?"
+      b:
+         statement: "Lukas und Thomas arbeiten für ein Delikatessladen. Diese Woche müssen sie aufwendige Geschenboxen zusammenstellen, die eine große Auswahl an Produkten enthalten."
+         random: "Lukas hat 142 Geschenkboxen zusammengestellt, Thomas 105. Am Ende der Woche bekommt Lukas zusätzlich zu seinem normalen Gehalt eine Bonuszahlung von 50 Euro."
+         zsg: "Lukas und Thomas wissen, dass derjenige von ihnen, der es schafft die meisten Boxen zusammenzustellen 50 Euro zusätzlich zu dem normalen Gehalt erhält. Lukas stellt 142 Geschenkboxen zusammen, Thomas 105. Also bekommt Anna die Bonuszahlung von 50 Euro."
+         nzsg: "Lukas und Thomas wissen, dass sie am Ende eines Arbeitstages zusätzlich zu ihrem Gehalt 50 Euro bekommen falls sie es schaffen 130 oder mehr Boxen zusammenzustellen. Lukas stellt 142 Geschenkboxen zusammen, Thomas 105. Daher erhält nur Lukas die 50 Euro extra."
+         case_questions:
+            - "Finden Sie das gerecht?"
+            - "Würden Sie Thomas etwas von Lukas Bonus abgeben?"
+            - "Sie können die 50 Euro zwischen Lukas und Thomas verteilen. Wie würden Sie die Verteilung vornehmen?"
+            - "Wie würden Sie die 50 Euro verteilen, wenn Lukas 142 jedoch Thomas nur 91 Geschenkboxen zusammengestellt hätte?"
+      c:
+         statement: "Nikolas und Paul sind Studenten und arbeiten in den Semesterferien als Fahrradkourriere. Sie sind beide begeisterte und Fahrradfahrer."
+         random: "An diesem Tag hat Nikolas 13 und Paul 17 Bestellungen ausgeliefert. Am Ende des Tages bekommt Nikolas seinen Tageslohn, Paul bekommt zusätzlich zu seinem Tageslohn 20 Euro extra."
+         zsg: "Nikolas und Paul wissen, dass derjenige von ihnen, der es schafft an einem Tag die meisten Bestellungen auszuliefern 20 Euro extra erhält. Nikolas liefert 13 Bestellungen aus und Paul 17 und somit bekommt Paul die 20 Euro."
+         nzsg: "Nikolas und Paul wissen, dass sie am Ende eines Arbeitstages zusätzlich zu ihrem Gehalt 20 Euro bekommen falls sie es schaffen, 15 oder mehr Bestellungen auszutragen. Nikolas trägt an diesem Tag 13 Bestellungen, Paul 17. Daher erhält nur Paul die 20 Euro estra."
+         case_questions:
+            - "Finden Sie das gerecht?"
+            - "Würden Sie Nikolas etwas von Pauls Bonus abgeben?"
+            - "Sie können die 20 Euro zwischen Nikolas und Paul verteilen. Wie würden Sie die Verteilung vornehmen?"
+            - "Wie würden Sie die 20 Euro verteilen, wenn Nikolas 13 jedoch Paul 22 Bestellungen ausgeliefert hätte?"

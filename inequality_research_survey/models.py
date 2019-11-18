@@ -8,6 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+import yaml
 
 
 author = 'Your name here'
@@ -15,6 +16,9 @@ author = 'Your name here'
 doc = """
 Your app description
 """
+
+stream = open("fixtures/questions.yaml", 'r')
+questions = yaml.safe_load(stream)
 
 def seven_options_likert_scale(question):
     # Define a Likert-type scale with 7 seven options
@@ -111,18 +115,23 @@ class Player(BasePlayer):
 
     """
 
-    bzsg_1 = seven_options_likert_scale("Erfolge einiger Menschen sind normalerweise das Versagen anderer Menschen.")
-    bzsg_2 = seven_options_likert_scale("Wird jemand reich, heißt es dass eine andere Person ärmer wird.")
-    bzsg_3 = seven_options_likert_scale("Das Leben ist so gestaltet, dass wenn jemand gewinnt andere verlieren müssen.")
-    bzsg_4 = seven_options_likert_scale("In den meisten Situationen sind die Interessen unterschiedlicher Menschen nicht zu vereinbaren.")
-    bzsg_5 = seven_options_likert_scale("Das Leben ist wie ein Tennisspiel - man gewinnt nur wenn andere verlieren.")
-    bzsg_6 = seven_options_likert_scale("Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden.")
-    bzsg_7 = seven_options_likert_scale("Wenn ein Mensch viel für andere tut verliert er.")
-    bzsg_8 = seven_options_likert_scale("Der Wohlstand weniger wird auf Kosten vieler erlangt.")
+    bzsg_1 = seven_options_likert_scale(questions.get("bzsg")[0])
+    bzsg_2 = seven_options_likert_scale(questions.get("bzsg")[1])
+    bzsg_3 = seven_options_likert_scale(questions.get("bzsg")[2])
+    bzsg_4 = seven_options_likert_scale(questions.get("bzsg")[3])
+    bzsg_5 = seven_options_likert_scale(questions.get("bzsg")[4])
+    bzsg_6 = seven_options_likert_scale(questions.get("bzsg")[5])
+    bzsg_7 = seven_options_likert_scale(questions.get("bzsg")[6])
+    bzsg_8 = seven_options_likert_scale(questions.get("bzsg")[7])
 
     # Perceptions on redistribution questions
 
-    redistribution_1 = seven_options_likert_scale("Der Staat trägt die Verantwortug die Unterschiede zwischen Menschen mit hohem und Menschen mit niedrigerem Einkommen zu verringern.")
-    redistribution_2 = seven_options_likert_scale("Der Staat sollte jedem der arbeiten möchte einen Arbeitsplatz bieten.")
-    redistribution_3 = seven_options_likert_scale("Der Staat sollte jeden mit einem garantierten Grundeinkommen versorgen.")
-    redistribution_4 = seven_options_likert_scale("Wir brauchen größere Einkommensunterschiede um Anreize für individuelles Bemühen zu schaffen.")
+    redistribution_1 = seven_options_likert_scale(questions.get("redistribution")[0])
+    redistribution_2 = seven_options_likert_scale(questions.get("redistribution")[1])
+    redistribution_3 = seven_options_likert_scale(questions.get("redistribution")[2])
+    redistribution_4 = seven_options_likert_scale(questions.get("redistribution")[3])
+
+    # Vignette questions.
+
+    # Statements
+    

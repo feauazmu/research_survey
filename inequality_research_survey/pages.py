@@ -2,12 +2,17 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+import yaml
 
 class DemographicQuestions(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'nationality', 'education']
 
 class Beliefs(Page):
+    stream = open("fixtures/questions.yaml", 'r')
+    questions = yaml.safe_load(stream)
+
+    statement_a = questions.get("vignette").get("a").get("statement")
     form_model = 'player'
     form_fields = [
         # Beliefs in zero-sum game:
