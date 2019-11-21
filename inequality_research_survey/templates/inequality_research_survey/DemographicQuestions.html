@@ -2,10 +2,12 @@
 {% load otree static %}
 
 {% block title %}
-    Demographic Questions
+
 {% endblock %}
 
 {% block content %}
+   <h3>Bitte beantworten Sie zunächst einige Fragen über sich:</h3>
+   <br>
 
    {% for field in form %}
       {% formfield field %}

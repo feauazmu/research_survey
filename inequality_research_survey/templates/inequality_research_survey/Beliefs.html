@@ -2,10 +2,12 @@
 {% load otree static %}
 
 {% block title %}
-    Beliefs Questions
 {% endblock %}
 
 {% block content %}
+
+   <h4>Welche Meinung haben Sie zu den folgenden Aussagen?</h4>
+   <br>
 
    {% for field in form %}
       {% formfield field %}

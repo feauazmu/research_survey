@@ -4,6 +4,9 @@ from .models import Constants
 
 import yaml
 
+class WelcomePage(Page):
+    pass
+
 class DemographicQuestions(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work']
@@ -73,6 +76,7 @@ class Vignette_1(Page):
             )
 
 page_sequence = [
+    WelcomePage,
     DemographicQuestions,
     Beliefs,
     Vignette_1,

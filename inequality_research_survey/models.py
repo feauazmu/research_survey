@@ -24,13 +24,13 @@ def seven_options_likert_scale(question):
     # Define a Likert-type scale with 7 seven options
     return models.IntegerField(
         choices = [
-            [7, "Strongly agree"],
-            [6, "Agree"],
-            [5, "Somewhat agree"],
-            [4, "Neither agree nor disagree"],
-            [3, "Somewhat disagree"],
-            [2, "Disagree"],
-            [1, "Strongly disagree"],
+            [7, "Ich stimme vollständig zu"],
+            [6, "Ich stimme zu"],
+            [5, "Ich stimme leicht zu"],
+            [4, "Ich stimme weder zu noch nicht zu"],
+            [3, "Ich stimme leicht nicht zu"],
+            [2, "Ich stimme nicht zu"],
+            [1, "Ich stimme vollständig nicht zu"],
         ],
         label = question,
         widget = widgets.RadioSelect,
@@ -153,14 +153,22 @@ class Player(BasePlayer):
     redistribution_4 = seven_options_likert_scale(questions.get("redistribution")[3])
 
     # Vignette questions.
-    random_question_1 = seven_options_likert_scale("")
+    random_question_1 = models.IntegerField(
+        choices = [
+            [1, 'ja'],
+            [2, 'weder noch'],
+            [3, 'nein'],
+        ],
+            widget = widgets.RadioSelect,
+            blank = False,
+    )
     random_question_2 = models.IntegerField(
         choices = [
             [1, 'ja'],
             [0, 'nein'],
+        ],
             widget = widgets.RadioSelect,
             blank = False,
-        ],
     )
     random_question_3 = models.IntegerField(
         blank = False,
