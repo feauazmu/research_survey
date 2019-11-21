@@ -155,3 +155,6 @@ class Player(BasePlayer):
     # Vignette questions.
     random_question_1 = seven_options_likert_scale("")
     random_question_2 = seven_options_likert_scale("")
+    random_question_3 = models.IntegerField(
+        blank = False,
+    )
