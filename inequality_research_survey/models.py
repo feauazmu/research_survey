@@ -24,16 +24,16 @@ def seven_options_likert_scale(question):
     # Define a Likert-type scale with 7 seven options
     return models.IntegerField(
         choices = [
-            [7, "Ich stimme vollständig zu"],
-            [6, "Ich stimme zu"],
-            [5, "Ich stimme leicht zu"],
-            [4, "Ich stimme weder zu noch nicht zu"],
-            [3, "Ich stimme leicht nicht zu"],
-            [2, "Ich stimme nicht zu"],
-            [1, "Ich stimme vollständig nicht zu"],
+            [7, "1"],
+            [6, "2"],
+            [5, "3"],
+            [4, "4"],
+            [3, "5"],
+            [2, "6"],
+            [1, "7"],
         ],
         label = question,
-        widget = widgets.RadioSelect,
+        widget = widgets.RadioSelectHorizontal,
     )
 
 class Constants(BaseConstants):
@@ -101,7 +101,8 @@ class Player(BasePlayer):
             [2, 'Berufsausbildung'],
             [3, 'Abitur'],
             [4, 'Realschulabschluss'],
-            [5, 'Keiner']
+            [5, 'Hauptschulabschluss'],
+            [6, 'Keiner'],
         ],
         widget = widgets.RadioSelect,
         blank = False,
@@ -111,7 +112,7 @@ class Player(BasePlayer):
         label = "In welchem Bereich sind sie beruflich tätig",
         choices = [
             [1, 'Land- und Forstwirtschaft, Fischerei'],
-            [2, 'Verarbeitendes Gewerbe'],
+            [2, 'Verarbeitendes Gewerbe (Produktion, Handwerk...)'],
             [3, 'Energie- und Wasserversorgung'],
             [4, 'Baugewerbe'],
             [5, 'Handel'],
@@ -123,6 +124,22 @@ class Player(BasePlayer):
             [11, 'Erziehung und Unterricht'],
             [12, 'Erbringung von sonstigen Dienstleistungen'],
             [13, 'Anderes'],
+        ],
+        widget = widgets.RadioSelect,
+        blank = False,
+    )
+
+    political_party = models.IntegerField(
+        label = "Wenn am nächsten Sonntag Bundestagswahl wäre, welche der folgenden Parteien würden Sie dann wählen?",
+        choices = [
+            [1, "CDU/CSU"],
+            [2, "SPD"],
+            [3, "AfD"],
+            [4, "FDP"],
+            [5, "Die Linke"],
+            [6, "Bündnis 90/Die Grünen"],
+            [7, "Keine der oben genannten Parteien."],
+            [8, "Ich würde nicht wählen gehen."],
         ],
         widget = widgets.RadioSelect,
         blank = False,
@@ -153,16 +170,18 @@ class Player(BasePlayer):
     redistribution_4 = seven_options_likert_scale(questions.get("redistribution")[3])
 
     # Vignette questions.
-    random_question_1 = models.IntegerField(
+    undefined_question_1 = models.IntegerField(
         choices = [
-            [1, 'ja'],
-            [2, 'weder noch'],
-            [3, 'nein'],
+            [1, "sehr gerecht"],
+            [2, "gerecht"],
+            [3, "weder gerecht noch ungerecht"],
+            [4, "ungerecht"],
+            [5, "sehr ungerecht"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
     )
-    random_question_2 = models.IntegerField(
+    undefined_question_2 = models.IntegerField(
         choices = [
             [1, 'ja'],
             [0, 'nein'],
@@ -170,6 +189,6 @@ class Player(BasePlayer):
             widget = widgets.RadioSelect,
             blank = False,
     )
-    random_question_3 = models.IntegerField(
+    undefined_question_3 = models.IntegerField(
         blank = False,
     )

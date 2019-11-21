@@ -9,7 +9,7 @@ class WelcomePage(Page):
 
 class DemographicQuestions(Page):
     form_model = 'player'
-    form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work']
+    form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work', 'political_party']
 
 class Beliefs(Page):
 
@@ -37,9 +37,9 @@ class Beliefs(Page):
 class Vignette_1(Page):
     form_model = 'player'
     form_fields = [
-        'random_question_1',
-        'random_question_2',
-        'random_question_3',
+        'undefined_question_1',
+        'undefined_question_2',
+        'undefined_question_3',
         ]
 
     def vars_for_template(self):
@@ -75,9 +75,13 @@ class Vignette_1(Page):
             top = max,
             )
 
+class ExitPage(Page):
+    pass
+
 page_sequence = [
     WelcomePage,
     DemographicQuestions,
     Beliefs,
     Vignette_1,
+    ExitPage,
     ]
