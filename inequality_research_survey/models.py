@@ -196,3 +196,57 @@ class Player(BasePlayer):
     undefined_question_4 = models.IntegerField(
         blank = False,
     )
+
+    zsg_question_1 = models.IntegerField(
+        choices = [
+            [1, "sehr gerecht"],
+            [2, "gerecht"],
+            [3, "weder gerecht noch ungerecht"],
+            [4, "ungerecht"],
+            [5, "sehr ungerecht"],
+        ],
+            widget = widgets.RadioSelect,
+            blank = False,
+    )
+    zsg_question_2 = models.IntegerField(
+        choices = [
+            [1, 'ja'],
+            [0, 'nein'],
+        ],
+            widget = widgets.RadioSelect,
+            blank = False,
+    )
+    zsg_question_3 = models.IntegerField(
+        blank = True,
+    )
+
+    zsg_question_4 = models.IntegerField(
+        blank = False,
+    )
+
+    nzsg_question_1 = models.IntegerField(
+        choices = [
+            [1, "sehr gerecht"],
+            [2, "gerecht"],
+            [3, "weder gerecht noch ungerecht"],
+            [4, "ungerecht"],
+            [5, "sehr ungerecht"],
+        ],
+            widget = widgets.RadioSelect,
+            blank = False,
+    )
+    nzsg_question_2 = models.IntegerField(
+        choices = [
+            [1, 'ja'],
+            [0, 'nein'],
+        ],
+            widget = widgets.RadioSelect,
+            blank = False,
+    )
+    nzsg_question_3 = models.IntegerField(
+        blank = True,
+    )
+
+    nzsg_question_4 = models.IntegerField(
+        blank = False,
+    )
