@@ -190,5 +190,9 @@ class Player(BasePlayer):
             blank = False,
     )
     undefined_question_3 = models.IntegerField(
+        blank = True,
+    )
+
+    undefined_question_4 = models.IntegerField(
         blank = False,
     )

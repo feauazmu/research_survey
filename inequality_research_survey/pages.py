@@ -11,7 +11,34 @@ class DemographicQuestions(Page):
     form_model = 'player'
     form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work', 'political_party']
 
-class Beliefs(Page):
+class Beliefs_1(Page):
+    def is_displayed(self):
+        return self.player.treatment == "treatment_1" or self.player.treatment == "treatment_3" or self.player.treatment == "treatment_5"
+
+    form_model = 'player'
+    form_fields = [
+        # Beliefs in zero-sum game:
+
+        'bzsg_1',
+        'bzsg_2',
+        'bzsg_3',
+        'bzsg_4',
+        'bzsg_5',
+        'bzsg_6',
+        'bzsg_7',
+        'bzsg_8',
+
+        # Beliefs in redistribution:
+
+        'redistribution_1',
+        'redistribution_2',
+        'redistribution_3',
+        'redistribution_4',
+    ]
+
+class Beliefs_2(Page):
+    def is_displayed(self):
+        return self.player.treatment == "treatment_2" or self.player.treatment == "treatment_4" or self.player.treatment == "treatment_6"
 
     form_model = 'player'
     form_fields = [
@@ -51,6 +78,7 @@ class Vignette_1(Page):
             question_1 = questions.get("vignette").get("a").get("case_questions")[0]
             question_2 = questions.get("vignette").get("a").get("case_questions")[1]
             question_3 = questions.get("vignette").get("a").get("case_questions")[2]
+            question_4 = questions.get("vignette").get("a").get("case_questions")[3]
             max = 800
         elif self.player.treatment == "treatment_3" or self.player.treatment == "treatment_4":
             statement_a = questions.get("vignette").get("b").get("statement")
@@ -58,6 +86,7 @@ class Vignette_1(Page):
             question_1 = questions.get("vignette").get("b").get("case_questions")[0]
             question_2 = questions.get("vignette").get("b").get("case_questions")[1]
             question_3 = questions.get("vignette").get("b").get("case_questions")[2]
+            question_4 = questions.get("vignette").get("b").get("case_questions")[3]
             max = 50
         else:
             statement_a = questions.get("vignette").get("c").get("statement")
@@ -65,6 +94,7 @@ class Vignette_1(Page):
             question_1 = questions.get("vignette").get("c").get("case_questions")[0]
             question_2 = questions.get("vignette").get("c").get("case_questions")[1]
             question_3 = questions.get("vignette").get("c").get("case_questions")[2]
+            question_4 = questions.get("vignette").get("c").get("case_questions")[3]
             max = 20
         return dict(
             statement_a=statement_a,
@@ -81,7 +111,10 @@ class ExitPage(Page):
 page_sequence = [
     WelcomePage,
     DemographicQuestions,
-    Beliefs,
+    Beliefs_1,
     Vignette_1,
+    #Vignette_2,
+    #Vignette_3,
+    Beliefs_2,
     ExitPage,
     ]
