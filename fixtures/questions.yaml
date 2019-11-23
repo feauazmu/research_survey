@@ -15,6 +15,9 @@
       - "Wir brauchen größere Einkommensunterschiede um einen Anreiz für individuelles Bemühen zu schaffen."
    vignette:
       a:
+         names:
+            - "Frau Becker"
+            - "Frau Krüger"
          statement: "Frau Becker und Frau Krüger arbeiten seit kurzem für den Bonner Standort eines Immobilienmaklers. Sie wurden beide auf Grund ihrer eindrucksvollen Lebensläufe, die interessante Praktika im Ausland vorweisen, eingestellt. Nun freuen sie sich, nach einer aufregenden und lehrreichen Zeit an unterschiedlichen Orten der Welt, in ihrer Heimatstadt eine interessante und gut bezahlte Arbeit gefunden zu haben. Ihre Aufgabe besteht darin, Wohnungen einer gerade gebauten Neubausiedlung zu verkaufen. Die Wohnungen sind modern und familienfreundlich gestaltet. Der Komplex liegt in einer verkehrsberuhigten Zone, ist öffentlich gut angebunden und in unmittelbarer Nähe liegen zwei Schulen, ein Kindergarten und ein Einkaufszentrum. "
          random: "Am Ende des Monats hat Frau Becker 6 Wohnungen und Frau Krüger 4 Wohnungen verkauft. Frau Krüger bekommt ihren monatlichen Lohn, Frau Becker bekommt zusätzlich zu ihrem monatlichen Lohn einen Bonus von 800 Euro ausgezahlt."
          zsg: "Frau Becker und Frau Krüger wissen, dass diejenige die es schafft in einem Monat am meisten Wohnungen zu verkaufen, eine Bonuszahlung von 800 Euro zusätzlich zum Gehalt erhält. Im letzten Monat hat Frau Becker 6 und Frau Krüger 4 Wohnungen verkauft, somit bekommt Frau Becker den Bonus von 800 Euro. "
@@ -25,6 +28,9 @@
             - "Falls ja, Wie würden Sie den Bonus von 800 Euro zwischen den beiden verteilen?"
             - "Wie würden Sie die 800 Euro verteilen, wenn Frau Becker 6 jedoch Frau Krüger nur 2 Wohnungen verkauft hätte?"
       b:
+         names:
+            - "Herr Zimmermann"
+            - "Herr Hoffmann"
          statement: "Herr Zimmermann und Herr Hoffmann arbeiten für einen Delikatessladen in Hamburg. Üblicherweise sind sie für die Organisation und Durchführung des Catering verantwortlich. Diese Woche müssen sie aufwendige Geschenkboxen zusammenstellen, die neben einer Auswahl der erstklassigen hauseigenen Produkte auch internationale Spezialitäten, Wein und Pralinen enthalten. Es sollen personalisierte, mit Sorgfalt gepackte Geschenke für die Stammkunden des Ladens entstehen, welche die Qualität des Geschäftes widerspiegeln."
          random: "Herr Zimmermann hat 142 Geschenkboxen zusammengestellt, Herr Hoffmann 105. Am Ende der Woche bekommt Herr Zimmermann zusätzlich zu seinem normalen Gehalt eine Bonuszahlung von 50 Euro."
          zsg: "Herr Zimmermann und Herr Hoffmann wissen, dass derjenige von ihnen, der es schafft die meisten Boxen zusammenzustellen 50 Euro zusätzlich zu dem normalen Gehalt erhält. Herr Zimmermann stellt 142 Geschenkboxen zusammen, Herr Hoffmann 105. Also bekommt Herr Zimmermann die Bonuszahlung von 50 Euro."
@@ -35,6 +41,9 @@
             - "Falls ja, Wie würden Sie den Bonus von 50 Euro zwischen den beiden verteilen?"
             - "Wie würden Sie die 50 Euro verteilen, wenn Herr Zimmermann 142 jedoch Herr Hoffmann nur 91 Geschenkboxen zusammengestellt hätte?"
       c:
+         names:
+            - "Herr Keller"
+            - "Herr Meyer"
          statement: "Herr Keller und Herr Meyer sind Studierende und arbeiten in den Semesterferien als Fahrradkuriere für ein neu gegründetes Berliner Start-Up, welches mit vielen Restaurants zusammenarbeitet. Beide sind begeisterte und sportliche Fahrradfahrer, die sich lieber sportlich betätigen als am Schreibtisch zu sitzen. Mit diesem Job nutzen sie die Gelegenheit in ihren Ferien Geld zu verdienen und gleichzeitig frische Luft und Bewegung zu bekommen, sowie Berlin kennen zu lernen, wohin sie für ihr Studium gezogen sind."
          random: "An diesem Tag hat Herr Keller 13 und Herr Meyer 17 Bestellungen ausgeliefert. Am Ende des Tages bekommt Herr Keller seinen Tageslohn, Herr Meyer bekommt zusätzlich zu seinem Tageslohn 20 Euro dazu."
          zsg: "Herr Keller und Herr Meyer wissen, dass derjenige von ihnen, der es schafft an einem Tag die meisten Bestellungen auszuliefern 20 Euro zusätzlich erhält. Herr Keller liefert 13 Bestellungen aus und Herr Meyer 17. Somit bekommt Herr Meyer die zusätzlichen 20 Euro."
