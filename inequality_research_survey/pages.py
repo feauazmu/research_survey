@@ -134,6 +134,8 @@ class Vignette_2(Page):
             question_2 = questions.get("vignette").get("a").get("case_questions")[1]
             question_3 = questions.get("vignette").get("a").get("case_questions")[2]
             question_4 = questions.get("vignette").get("a").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("a").get("names")[0]
+            name_2 = questions.get("vignette").get("a").get("names")[1]
             max = 800
         elif self.player.treatment == "treatment_1" or self.player.treatment == "treatment_2":
             statement_a = questions.get("vignette").get("b").get("statement")
@@ -142,6 +144,8 @@ class Vignette_2(Page):
             question_2 = questions.get("vignette").get("b").get("case_questions")[1]
             question_3 = questions.get("vignette").get("b").get("case_questions")[2]
             question_4 = questions.get("vignette").get("b").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("b").get("names")[0]
+            name_2 = questions.get("vignette").get("b").get("names")[1]
             max = 50
         else:
             statement_a = questions.get("vignette").get("c").get("statement")
@@ -150,6 +154,8 @@ class Vignette_2(Page):
             question_2 = questions.get("vignette").get("c").get("case_questions")[1]
             question_3 = questions.get("vignette").get("c").get("case_questions")[2]
             question_4 = questions.get("vignette").get("c").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("c").get("names")[0]
+            name_2 = questions.get("vignette").get("c").get("names")[1]
             max = 20
         return dict(
             statement_a=statement_a,
@@ -157,6 +163,8 @@ class Vignette_2(Page):
             question_1 = question_1,
             question_2 = question_2,
             question_3 = question_3,
+            name_1 = name_1,
+            name_2 = name_2,
             question_4 = question_4,
             top = max,
             )
@@ -179,6 +187,8 @@ class Vignette_3(Page):
             question_2 = questions.get("vignette").get("a").get("case_questions")[1]
             question_3 = questions.get("vignette").get("a").get("case_questions")[2]
             question_4 = questions.get("vignette").get("a").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("a").get("names")[0]
+            name_2 = questions.get("vignette").get("a").get("names")[1]
             max = 800
         elif self.player.treatment == "treatment_5" or self.player.treatment == "treatment_6":
             statement_a = questions.get("vignette").get("b").get("statement")
@@ -187,6 +197,8 @@ class Vignette_3(Page):
             question_2 = questions.get("vignette").get("b").get("case_questions")[1]
             question_3 = questions.get("vignette").get("b").get("case_questions")[2]
             question_4 = questions.get("vignette").get("b").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("b").get("names")[0]
+            name_2 = questions.get("vignette").get("b").get("names")[1]
             max = 50
         else:
             statement_a = questions.get("vignette").get("c").get("statement")
@@ -195,6 +207,8 @@ class Vignette_3(Page):
             question_2 = questions.get("vignette").get("c").get("case_questions")[1]
             question_3 = questions.get("vignette").get("c").get("case_questions")[2]
             question_4 = questions.get("vignette").get("c").get("case_questions")[3]
+            name_1 = questions.get("vignette").get("c").get("names")[0]
+            name_2 = questions.get("vignette").get("c").get("names")[1]
             max = 20
         return dict(
             statement_a=statement_a,
@@ -203,6 +217,8 @@ class Vignette_3(Page):
             question_2 = question_2,
             question_3 = question_3,
             question_4 = question_4,
+            name_1 = name_1,
+            name_2 = name_2,
             top = max,
             )
 

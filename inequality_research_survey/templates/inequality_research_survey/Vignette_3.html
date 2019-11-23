@@ -5,14 +5,93 @@
 {% endblock %}
 
 {% block content %}
+<script type="text/javascript">
+   function whenSliderChanged(val){
+      var val2 = {{ top }} - val;
+      return val2;
+   };
+
+
+   $(document).ready(function(){
+      $('#full_question_3').hide();
+      $('#id_nzsg_question_2_0').change(function(){
+         if (this.checked) {
+            $('#full_question_3').show();
+            }
+      });
+
+      $('#id_nzsg_question_2_1').change(function(){
+            if (this.checked) {
+               $('#full_question_3').hide();
+            }
+      });
+
+      $('#slider_money_q4').mousemove(function(){
+         var val = whenSliderChanged(document.getElementById("slider_money_q4").value);
+         document.getElementById("name_1_value_q4").textContent = val;
+      });
+
+      $('#slider_money_q3').mousemove(function(){
+         var val = whenSliderChanged(document.getElementById("slider_money_q3").value);
+         document.getElementById("name_1_value_q3").textContent = val;
+      });
+
+   });
+</script>
    <h4>Im Folgenden werden Ihnen einige Situationen beschrieben. Bitte lesen Sie aufmerksam und beantworten die nachfolgenden Fragen.</h4><br>
    {{ statement_a }}<br><br>
    {{ random_question}}
    <br><br>
    {% formfield player.nzsg_question_1 label=question_1 %}
    {% formfield player.nzsg_question_2 label=question_2 %}
-   {% formfield player.nzsg_question_3 label=question_3 %}
-   {% formfield player.nzsg_question_4 label=question_4 %}
+   <div id="full_question_3">
+      <label class="col-form-label" for="nzsg_question_3">{{ question_3 }}</label>
+      <div id="nzsg_question_3" class="range" style="display: flex" data-slider>
+
+         <div class="input-group-prepend">
+              <span class="input-group-text">{{name_1}}</span>
+         </div>
+
+         <div class="input-group-append">
+             <span class="input-group-text" id="name_1_value_q3" title="current value">{{top}}</span>
+         </div>
+
+         <input type="range" id='slider_money_q3' name="nzsg_question_3" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
+
+         <div class="input-group-append">
+             <span class="input-group-text" data-slider-value title="current value"></span>
+         </div>
+
+         <div class="input-group-append">
+            <span class="input-group-text">{{name_2}}</span>
+         </div>
+      </div>
+
+      <br><br>
+   </div>
+
+   <label class="col-form-label" for="id_nzsg_question_4">{{ question_4 }}</label>
+   <div id="nzsg_question_4" class="range" style="display: flex" data-slider>
+
+      <div class="input-group-prepend">
+           <span class="input-group-text">{{name_1}}</span>
+      </div>
+
+      <div class="input-group-append">
+          <span class="input-group-text" id="name_1_value_q4" title="current value">{{top}}</span>
+      </div>
+
+
+      <input type="range" id="slider_money_q4" name="nzsg_question_4" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
+
+      <div class="input-group-append">
+          <span class="input-group-text" data-slider-value title="current value"></span>
+      </div>
+
+      <div class="input-group-append">
+         <span class="input-group-text">{{name_2}}</span>
+      </div>
+   </div>
 
     {% next_button %}
 
