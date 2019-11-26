@@ -39,7 +39,7 @@ def seven_options_likert_scale(question):
 class Constants(BaseConstants):
     name_in_url = 'inequality_research_survey'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
 
 
 class Subsession(BaseSubsession):
@@ -56,6 +56,8 @@ class Subsession(BaseSubsession):
             ])
         for p in self.get_players():
             p.treatment = next(treatments)
+            # we need participant vars as we now have more than 1 round and normal variables are stored only within one round
+            p.participant.vars['treatment'] = p.treatment
 
 class Group(BaseGroup):
     pass

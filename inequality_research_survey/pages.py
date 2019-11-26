@@ -5,15 +5,20 @@ from .models import Constants
 import yaml
 
 class WelcomePage(Page):
-    pass
+    def is_displayed(self):
+        return self.round_number == 1
 
 class DemographicQuestions(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
     form_model = 'player'
     form_fields = ['gender', 'age', 'nationality', 'education', 'field_of_work', 'political_party']
 
-class Beliefs_1(Page):
+
+class Beliefs(Page):
     def is_displayed(self):
-        return self.player.treatment == "treatment_1" or self.player.treatment == "treatment_3" or self.player.treatment == "treatment_5"
+        return ((self.participant.vars['treatment'] == "treatment_1" or self.participant.vars['treatment'] == "treatment_3" or self.participant.vars['treatment'] == "treatment_5") and self.round_number == 1) or ((self.participant.vars['treatment'] == "treatment_2" or self.participant.vars['treatment'] == "treatment_4" or self.participant.vars['treatment'] == "treatment_6") and self.round_number == Constants.num_rounds)
 
     form_model = 'player'
     form_fields = [
@@ -36,9 +41,38 @@ class Beliefs_1(Page):
         'redistribution_4',
     ]
 
+
+# no longer needed
+class Beliefs_1(Page):
+    def is_displayed(self):
+        return self.participant.vars['treatment'] == "treatment_1" or self.participant.vars['treatment'] == "treatment_3" or self.participant.vars['treatment'] == "treatment_5"
+
+    form_model = 'player'
+    form_fields = [
+        # Beliefs in zero-sum game:
+
+        'bzsg_1',
+        'bzsg_2',
+        'bzsg_3',
+        'bzsg_4',
+        'bzsg_5',
+        'bzsg_6',
+        'bzsg_7',
+        'bzsg_8',
+
+        # Beliefs in redistribution:
+
+        'redistribution_1',
+        'redistribution_2',
+        'redistribution_3',
+        'redistribution_4',
+    ]
+
+
+# no longer needed
 class Beliefs_2(Page):
     def is_displayed(self):
-        return self.player.treatment == "treatment_2" or self.player.treatment == "treatment_4" or self.player.treatment == "treatment_6"
+        return self.participant.vars['treatment'] == "treatment_2" or self.participant.vars['treatment'] == "treatment_4" or self.participant.vars['treatment'] == "treatment_6"
 
     form_model = 'player'
     form_fields = [
@@ -62,6 +96,9 @@ class Beliefs_2(Page):
     ]
 
 class Vignette_1(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
     form_model = 'player'
     form_fields = [
         'undefined_question_1',
@@ -73,7 +110,7 @@ class Vignette_1(Page):
     def vars_for_template(self):
         stream = open("fixtures/questions.yaml", 'r')
         questions = yaml.safe_load(stream)
-        if self.player.treatment == "treatment_1" or self.player.treatment == "treatment_2":
+        if self.participant.vars['treatment'] == "treatment_1" or self.participant.vars['treatment'] == "treatment_2":
             statement_a = questions.get("vignette").get("a").get("statement")
             random_question = questions.get("vignette").get("a").get("random")
             question_1 = questions.get("vignette").get("a").get("case_questions")[0]
@@ -83,7 +120,7 @@ class Vignette_1(Page):
             name_1 = questions.get("vignette").get("a").get("names")[0]
             name_2 = questions.get("vignette").get("a").get("names")[1]
             max = 800
-        elif self.player.treatment == "treatment_3" or self.player.treatment == "treatment_4":
+        elif self.participant.vars['treatment'] == "treatment_3" or self.participant.vars['treatment'] == "treatment_4":
             statement_a = questions.get("vignette").get("b").get("statement")
             random_question = questions.get("vignette").get("b").get("random")
             question_1 = questions.get("vignette").get("b").get("case_questions")[0]
@@ -116,6 +153,8 @@ class Vignette_1(Page):
             )
 
 class Vignette_2(Page):
+    def is_displayed(self):
+        return self.round_number == 1
     form_model = 'player'
     form_fields = [
         'zsg_question_1',
@@ -127,7 +166,7 @@ class Vignette_2(Page):
     def vars_for_template(self):
         stream = open("fixtures/questions.yaml", 'r')
         questions = yaml.safe_load(stream)
-        if self.player.treatment == "treatment_5" or self.player.treatment == "treatment_6":
+        if self.participant.vars['treatment'] == "treatment_5" or self.participant.vars['treatment'] == "treatment_6":
             statement_a = questions.get("vignette").get("a").get("statement")
             random_question = questions.get("vignette").get("a").get("zsg")
             question_1 = questions.get("vignette").get("a").get("case_questions")[0]
@@ -137,7 +176,7 @@ class Vignette_2(Page):
             name_1 = questions.get("vignette").get("a").get("names")[0]
             name_2 = questions.get("vignette").get("a").get("names")[1]
             max = 800
-        elif self.player.treatment == "treatment_1" or self.player.treatment == "treatment_2":
+        elif self.participant.vars['treatment'] == "treatment_1" or self.participant.vars['treatment'] == "treatment_2":
             statement_a = questions.get("vignette").get("b").get("statement")
             random_question = questions.get("vignette").get("b").get("zsg")
             question_1 = questions.get("vignette").get("b").get("case_questions")[0]
@@ -169,6 +208,8 @@ class Vignette_2(Page):
             top = max,
             )
 class Vignette_3(Page):
+    def is_displayed(self):
+        return self.round_number == 1
     form_model = 'player'
     form_fields = [
         'nzsg_question_1',
@@ -180,7 +221,7 @@ class Vignette_3(Page):
     def vars_for_template(self):
         stream = open("fixtures/questions.yaml", 'r')
         questions = yaml.safe_load(stream)
-        if self.player.treatment == "treatment_3" or self.player.treatment == "treatment_4":
+        if self.participant.vars['treatment'] == "treatment_3" or self.participant.vars['treatment'] == "treatment_4":
             statement_a = questions.get("vignette").get("a").get("statement")
             random_question = questions.get("vignette").get("a").get("nzsg")
             question_1 = questions.get("vignette").get("a").get("case_questions")[0]
@@ -190,7 +231,7 @@ class Vignette_3(Page):
             name_1 = questions.get("vignette").get("a").get("names")[0]
             name_2 = questions.get("vignette").get("a").get("names")[1]
             max = 800
-        elif self.player.treatment == "treatment_5" or self.player.treatment == "treatment_6":
+        elif self.participant.vars['treatment'] == "treatment_5" or self.participant.vars['treatment'] == "treatment_6":
             statement_a = questions.get("vignette").get("b").get("statement")
             random_question = questions.get("vignette").get("b").get("nzsg")
             question_1 = questions.get("vignette").get("b").get("case_questions")[0]
@@ -223,15 +264,17 @@ class Vignette_3(Page):
             )
 
 class ExitPage(Page):
-    pass
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
 
 page_sequence = [
     WelcomePage,
     DemographicQuestions,
-    Beliefs_1,
+    Beliefs,
+    # Beliefs_1,
     Vignette_1,
     Vignette_2,
     Vignette_3,
-    Beliefs_2,
+    # Beliefs_2,
     ExitPage,
     ]
