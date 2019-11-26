@@ -51,21 +51,21 @@
       <div id="undefined_question_3" class="range" style="display: flex" data-slider>
 
          <div class="input-group-prepend">
-              <span class="input-group-text">{{name_1}}</span>
+              <span class="input-group-text" style="width: 120px">{{name_1}}</span>
          </div>
 
          <div class="input-group-append">
-             <span class="input-group-text" id="name_1_value_q3" title="current value">{{top}}</span>
+             <span class="input-group-text" id="name_1_value_q3" title="current value" style="width: 55px">{{top}}</span>
          </div>
 
          <input type="range" id='slider_money_q3' name="undefined_question_3" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
 
          <div class="input-group-append">
-             <span class="input-group-text" data-slider-value title="current value"></span>
+             <span class="input-group-text" data-slider-value title="current value" style="width: 55px"></span>
          </div>
 
          <div class="input-group-append">
-            <span class="input-group-text">{{name_2}}</span>
+            <span class="input-group-text" style="width: 120px">{{name_2}}</span>
          </div>
       </div>
 
@@ -76,24 +76,25 @@
    <div id="undefined_question_4" class="range" style="display: flex" data-slider>
 
       <div class="input-group-prepend">
-           <span class="input-group-text">{{name_1}}</span>
+           <span class="input-group-text" style="width: 120px">{{name_1}}</span>
       </div>
 
       <div class="input-group-append">
-          <span class="input-group-text" id="name_1_value_q4" title="current value">{{top}}</span>
+          <span class="input-group-text" id="name_1_value_q4" title="current value" style="width: 55px">{{top}}</span>
       </div>
 
 
       <input type="range" id="slider_money_q4" name="undefined_question_4" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
 
       <div class="input-group-append">
-          <span class="input-group-text" data-slider-value title="current value"></span>
+          <span class="input-group-text" data-slider-value title="current value" style="width: 55px"></span>
       </div>
 
       <div class="input-group-append">
-         <span class="input-group-text">{{name_2}}</span>
+         <span class="input-group-text" style="width: 120px">{{name_2}}</span>
       </div>
    </div>
+   <br>
 
     {% next_button %}
 {% endblock %}
