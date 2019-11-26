@@ -1,16 +1,16 @@
 ---
    bzsg:
       - "Der Erfolg einiger Menschen bedeutet normalerweise das Versagen Anderer."
-      - "Wird jemand reich, heißt es dass jemand anderes ärmer wird."
-      - "Das Leben ist so gestaltet, dass wenn jemand gewinnt Andere verlieren müssen."
+      - "Wird jemand reicher, heißt es dass jemand anderes ärmer wird."
+      - "Das Leben ist so gestaltet, dass wenn jemand gewinnt, Andere verlieren müssen."
       - In den meisten Situationen sind die Interessen unterschiedlicher Menschen nicht zu vereinbaren."
-      - "Das Leben ist wie ein Tennisspiel – man gewinnt nur wenn andere verlieren."
+      - "Das Leben ist wie ein Tennisspiel – man gewinnt nur, wenn andere verlieren."
       - "Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden."
       - "Wenn ein Mensch viel für andere tut verliert er."
       - "Der Wohlstand mancher wird auf Kosten vieler erlangt."
    redistribution:
-      - "Der Staat trägt die Verantwortung, die Unterschiede zwischen Menschen mit hohem und Menschen mit niedrigerem Einkommen zu verringern."
-      - "Der Staat sollte jedem der arbeiten möchte einen Arbeitsplatz bieten."
+      - "Der Staat trägt die Verantwortung, Unterschiede zwischen Menschen mit hohem und Menschen mit niedrigerem Einkommen zu verringern."
+      - "Der Staat sollte jedem der arbeiten möchte, einen Arbeitsplatz bieten."
       - "Der Staat sollte jeden mit einem garantierten Grundeinkommen versorgen."
       - "Wir brauchen größere Einkommensunterschiede um einen Anreiz für individuelles Bemühen zu schaffen."
    vignette:
@@ -18,7 +18,7 @@
          names:
             - "Frau Becker"
             - "Frau Krüger"
-         statement: "Frau Becker und Frau Krüger arbeiten seit kurzem für den Bonner Standort eines Immobilienmaklers. Sie wurden beide auf Grund ihrer eindrucksvollen Lebensläufe, die interessante Praktika im Ausland vorweisen, eingestellt. Nun freuen sie sich, nach einer aufregenden und lehrreichen Zeit an unterschiedlichen Orten der Welt, in ihrer Heimatstadt eine interessante und gut bezahlte Arbeit gefunden zu haben. Ihre Aufgabe besteht darin, Wohnungen einer gerade gebauten Neubausiedlung zu verkaufen. Die Wohnungen sind modern und familienfreundlich gestaltet. Der Komplex liegt in einer verkehrsberuhigten Zone, ist öffentlich gut angebunden und in unmittelbarer Nähe liegen zwei Schulen, ein Kindergarten und ein Einkaufszentrum. "
+         statement: "Frau Becker und Frau Krüger arbeiten seit kurzem für den Bonner Standort eines Immobilienmaklers. Sie wurden beide auf Grund ihrer eindrucksvollen Lebensläufe, die interessante Praktika im Ausland vorweisen, eingestellt. Ihre Aufgabe besteht darin, Wohnungen einer gerade gebauten Neubausiedlung zu verkaufen. Die Wohnungen sind modern und familienfreundlich gestaltet. Der Komplex liegt in einer verkehrsberuhigten Zone, ist öffentlich gut angebunden und in unmittelbarer Nähe liegen zwei Schulen, ein Kindergarten und ein Einkaufszentrum. "
          random: "Am Ende des Monats hat Frau Becker 6 Wohnungen und Frau Krüger 4 Wohnungen verkauft. Frau Krüger bekommt ihren monatlichen Lohn, Frau Becker bekommt zusätzlich zu ihrem monatlichen Lohn einen Bonus von 800 Euro ausgezahlt."
          zsg: "Frau Becker und Frau Krüger wissen, dass diejenige die es schafft in einem Monat am meisten Wohnungen zu verkaufen, eine Bonuszahlung von 800 Euro zusätzlich zum Gehalt erhält. Im letzten Monat hat Frau Becker 6 und Frau Krüger 4 Wohnungen verkauft, somit bekommt Frau Becker den Bonus von 800 Euro. "
          nzsg: "Frau Becker und Frau Krüger wissen, dass sie am Ende des Monats zusätzlich zum Gehalt ein Bonus von 800 Euro bekommen falls sie es schaffen 5 oder mehr Wohnungen zu verkaufen. Frau Becker verkauft 6 Wohnungen und Frau Krüger verkauft 4 Wohnungen. Nur Frau Becker erhält also den Bonus von 800 Euro."
@@ -44,7 +44,7 @@
          names:
             - "Herr Keller"
             - "Herr Meyer"
-         statement: "Herr Keller und Herr Meyer sind Studierende und arbeiten in den Semesterferien als Fahrradkuriere für ein neu gegründetes Berliner Start-Up, welches mit vielen Restaurants zusammenarbeitet. Beide sind begeisterte und sportliche Fahrradfahrer, die sich lieber sportlich betätigen als am Schreibtisch zu sitzen. Mit diesem Job nutzen sie die Gelegenheit in ihren Ferien Geld zu verdienen und gleichzeitig frische Luft und Bewegung zu bekommen, sowie Berlin kennen zu lernen, wohin sie für ihr Studium gezogen sind."
+         statement: "Herr Keller und Herr Meyer sind Studierende und arbeiten in den Semesterferien als Fahrradkuriere für ein neu gegründetes Berliner Start-Up, welches mit vielen Restaurants zusammenarbeitet. Beide sind begeisterte und sportliche Fahrradfahrer, die sich lieber sportlich betätigen als am Schreibtisch zu sitzen. Mit diesem Job nutzen sie die Gelegenheit in ihren Ferien Geld zu verdienen und gleichzeitig frische Luft und Bewegung zu bekommen."
          random: "An diesem Tag hat Herr Keller 13 und Herr Meyer 17 Bestellungen ausgeliefert. Am Ende des Tages bekommt Herr Keller seinen Tageslohn, Herr Meyer bekommt zusätzlich zu seinem Tageslohn 20 Euro dazu."
          zsg: "Herr Keller und Herr Meyer wissen, dass derjenige von ihnen, der es schafft an einem Tag die meisten Bestellungen auszuliefern 20 Euro zusätzlich erhält. Herr Keller liefert 13 Bestellungen aus und Herr Meyer 17. Somit bekommt Herr Meyer die zusätzlichen 20 Euro."
          nzsg: "Herr Keller und Herr Meyer wissen, dass sie am Ende eines Arbeitstages zusätzlich zu ihrem Gehalt 20 Euro bekommen, falls sie es schaffen, 15 oder mehr Bestellungen auszutragen. Herr Keller trägt an diesem Tag 13 Bestellungen aus, Herr Meyer hingegen 17. Somit erhält nur Herr Meyer die 20 Euro zusätzlich."
