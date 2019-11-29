@@ -88,16 +88,19 @@ class Player(BasePlayer):
     nationality = models.IntegerField(
         label = "Nationalität:",
         choices = [
-            [1, 'Deutschland'],
-            [2, 'anderes EU-Land'],
-            [3, 'nicht EU-Land'],
+            [1, 'Deutsch'],
+            [2, 'Eu-Bürger'],
+            [3, 'Nicht-EU-Bürger'],
+            # [1, 'Deutschland'],
+            # [2, 'anderes EU-Land'],
+            # [3, 'nicht EU-Land'],
         ],
         widget = widgets.RadioSelect,
         blank = False,
     )
 
     education = models.IntegerField(
-        label = "Was ist ihr höchster Bildungsabschluss:",
+        label = "Was ist ihr höchster Bildungsabschluss?",
         choices = [
             [1, 'Hochschulabschluss'],
             [2, 'Berufsausbildung'],
@@ -111,7 +114,7 @@ class Player(BasePlayer):
     )
 
     field_of_work = models.IntegerField(
-        label = "In welchem Bereich sind sie beruflich tätig",
+        label = "In welchem Bereich sind sie beruflich tätig?",
         choices = [
             [1, 'Land- und Forstwirtschaft, Fischerei'],
             [2, 'Verarbeitendes Gewerbe (Produktion, Handwerk...)'],
@@ -122,7 +125,7 @@ class Player(BasePlayer):
             [7, 'Finanz- und Versicherungsdienstleistungen'],
             [8, 'Information und Kommunikation'],
             [9, 'Kunst, Unterhaltung und Erholung'],
-            [10, 'Gesundheits und Sozialwesen'],
+            [10, 'Gesundheits- und Sozialwesen'],
             [11, 'Erziehung und Unterricht'],
             [12, 'Erbringung von sonstigen Dienstleistungen'],
             [13, 'SchülerIn/StudentIn'],
