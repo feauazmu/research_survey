@@ -6,9 +6,14 @@
 
 {% block content %}
 
-   <h4>Welche Meinung haben Sie zu den folgenden Aussagen? Dabei bedeutet</h4><br>
-   <h5>
-   <ul>
+   <h4>Welche Meinung haben Sie zu den folgenden Aussagen?</h4><br>
+   
+
+      <p>Antworten Sie bitte anhand der folgenden Skala:
+Der Wert <b>1</b> bedeutet: <b>„ich stimme vollständig zu“</b>, der Wert <b>7</b> bedeutet: <b>„ich stimme überhaupt nicht zu“</b>.
+
+Mit den Werten zwischen 1 und 7 können Sie Ihre Meinung abgestuft ausdrücken.</p>
+<!--   <ul>
       <li>1 = „ich stimme vollständig zu“</li>
       <li>2 = „ich stimme zu“</li>
       <li>3 = „ich stimme teilweise zu“</li>
@@ -17,7 +22,8 @@
       <li>6 = „ich stimme nicht zu“</li>
       <li>7 = „ich stimme vollständig nicht zu“</li>
    </ul>
-   </h5>
+-->
+   
    <br>
 
    {% for field in form %}
