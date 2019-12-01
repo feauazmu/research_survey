@@ -6,8 +6,15 @@
 
 {% block content %}
 
+<script type="text/javascript">
+   $(document).ready(function(){
+      $(".controls").prepend("<p class=d-inline><i>ich stimme vollständig zu | </i>&nbsp</p>");
+      $(".controls").append("<p class=d-inline>| <i>ich stimme überhaupt nicht zu </i>&nbsp</p>");
+   });
+</script>
+
    <h4>Welche Meinung haben Sie zu den folgenden Aussagen?</h4><br>
-   
+
 
       <p>Antworten Sie bitte anhand der folgenden Skala:
 Der Wert <b>1</b> bedeutet: <b>„ich stimme vollständig zu“</b>, der Wert <b>7</b> bedeutet: <b>„ich stimme überhaupt nicht zu“</b>.
@@ -23,7 +30,7 @@ Mit den Werten zwischen 1 und 7 können Sie Ihre Meinung abgestuft ausdrücken.<
       <li>7 = „ich stimme vollständig nicht zu“</li>
    </ul>
 -->
-   
+
    <br>
 
    {% for field in form %}
