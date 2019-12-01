@@ -267,6 +267,12 @@ class ExitPage(Page):
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
+class Feedback(Page):
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+    form_model = 'player'
+    form_fields = ['feedback']
+
 page_sequence = [
     WelcomePage,
     DemographicQuestions,
@@ -275,6 +281,7 @@ page_sequence = [
     Vignette_1,
     Vignette_2,
     Vignette_3,
+    Feedback,
     # Beliefs_2,
     ExitPage,
     ]

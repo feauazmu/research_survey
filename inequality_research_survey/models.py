@@ -257,3 +257,6 @@ class Player(BasePlayer):
     nzsg_question_4 = models.IntegerField(
         blank = False,
     )
+
+    feedback = models.TextField(
+    )
