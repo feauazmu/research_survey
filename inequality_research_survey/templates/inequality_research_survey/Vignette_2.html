@@ -14,16 +14,25 @@
 
    $(document).ready(function(){
       $('#full_question_3').hide();
+      $('#full_question_4').hide();
       $('#id_zsg_question_2_0').change(function(){
          if (this.checked) {
             $('#full_question_3').show();
+            $('.otree-btn-next').hide();
             }
       });
 
       $('#id_zsg_question_2_1').change(function(){
             if (this.checked) {
                $('#full_question_3').hide();
+               $('.otree-btn-next').show();
             }
+      });
+
+      $('#question_3_ok_button').click(function(){
+         $('#full_question_4').show();
+         $('.otree-btn-next').show();
+
       });
 
       $('#slider_money_q4').mousemove(function(){
@@ -39,7 +48,7 @@
    });
 </script>
 
-   
+
    <h5>Situation 2</h5><br>
    {{ statement_a }}<br><br>
    {{ random_question}}
@@ -68,30 +77,35 @@
             <span class="input-group-text" style="width: 140px">{{name_2}}</span>
          </div>
       </div>
+      <br>
+      <button type="button" id="question_3_ok_button" class="btn btn-primary">OK</button>
 
       <br><br>
-   </div>
-
-   <label class="col-form-label" for="id_zsg_question_4">{{ question_4 }}</label>
-   <div id="zsg_question_4" class="range" style="display: flex" data-slider>
-
-      <div class="input-group-prepend">
-           <span class="input-group-text" style="width: 165px">{{name_1}}</span>
       </div>
 
-      <div class="input-group-append">
-          <span class="input-group-text" id="name_1_value_q4" title="current value" style="width: 45px">{{top}}</span>
-      </div>
+   <div id="full_question_4">
+
+      <label class="col-form-label" for="id_zsg_question_4">{{ question_4 }}</label>
+      <div id="zsg_question_4" class="range" style="display: flex" data-slider>
+
+         <div class="input-group-prepend">
+              <span class="input-group-text" style="width: 165px">{{name_1}}</span>
+         </div>
+
+         <div class="input-group-append">
+             <span class="input-group-text" id="name_1_value_q4" title="current value" style="width: 45px">{{top}}</span>
+         </div>
 
 
-      <input type="range" id="slider_money_q4" name="zsg_question_4" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
+         <input type="range" id="slider_money_q4" name="zsg_question_4" min="0" max={{ top }} step="1" value="0" class="form-control" style="flex-grow: 100">
 
-      <div class="input-group-append">
-          <span class="input-group-text" data-slider-value title="current value" style="width: 45px"></span>
-      </div>
+         <div class="input-group-append">
+             <span class="input-group-text" data-slider-value title="current value" style="width: 45px"></span>
+         </div>
 
-      <div class="input-group-append">
-         <span class="input-group-text" style="width: 140px">{{name_2}}</span>
+         <div class="input-group-append">
+            <span class="input-group-text" style="width: 140px">{{name_2}}</span>
+         </div>
       </div>
    </div>
    <br>
