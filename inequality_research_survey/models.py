@@ -38,7 +38,7 @@ def seven_options_likert_scale(question):
 
 class Constants(BaseConstants):
     name_in_url = 'inequality_research_survey'
-    players_per_group = None
+    players_per_group = 6
     num_rounds = 2
 
 

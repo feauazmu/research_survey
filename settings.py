@@ -27,7 +27,12 @@ LANGUAGE_CODE = 'de'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
-ROOMS = []
+ROOMS = [
+    dict(
+        name='survey_room',
+        display_name='Survey'
+    ),
+]
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
