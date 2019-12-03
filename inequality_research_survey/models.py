@@ -181,9 +181,11 @@ class Player(BasePlayer):
         choices = [
             [1, "sehr gerecht"],
             [2, "gerecht"],
-            [3, "weder gerecht noch ungerecht"],
-            [4, "ungerecht"],
-            [5, "sehr ungerecht"],
+            [3, "eher gerecht"],
+            [4, "weder gerecht noch ungerecht"],
+            [5, "eher ungerecht"],
+            [6, "ungerecht"],
+            [7, "sehr ungerecht"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
@@ -206,11 +208,13 @@ class Player(BasePlayer):
 
     zsg_question_1 = models.IntegerField(
         choices = [
-            [1, "sehr gerecht"],
+             [1, "sehr gerecht"],
             [2, "gerecht"],
-            [3, "weder gerecht noch ungerecht"],
-            [4, "ungerecht"],
-            [5, "sehr ungerecht"],
+            [3, "eher gerecht"],
+            [4, "weder gerecht noch ungerecht"],
+            [5, "eher ungerecht"],
+            [6, "ungerecht"],
+            [7, "sehr ungerecht"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
@@ -233,11 +237,13 @@ class Player(BasePlayer):
 
     nzsg_question_1 = models.IntegerField(
         choices = [
-            [1, "sehr gerecht"],
+              [1, "sehr gerecht"],
             [2, "gerecht"],
-            [3, "weder gerecht noch ungerecht"],
-            [4, "ungerecht"],
-            [5, "sehr ungerecht"],
+            [3, "eher gerecht"],
+            [4, "weder gerecht noch ungerecht"],
+            [5, "eher ungerecht"],
+            [6, "ungerecht"],
+            [7, "sehr ungerecht"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
