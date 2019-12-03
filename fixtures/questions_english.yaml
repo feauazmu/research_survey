@@ -1,0 +1,56 @@
+---
+   bzsg:
+      - "Der Erfolg einiger Menschen bedeutet normalerweise das Versagen anderer."
+      - "Wird jemand reicher, heißt es, dass jemand anderes ärmer wird."
+      - "Das Leben ist so gestaltet, dass andere verlieren müssen, wenn jemand gewinnt."
+      - "In den meisten Situationen sind die Interessen unterschiedlicher Menschen nicht zu vereinbaren."
+      - "Das Leben ist wie ein Tennisspiel – man gewinnt nur, wenn andere verlieren."
+      - "Wenn einige Menschen ärmer werden bedeutet dies, dass andere Menschen reicher werden."
+      - "Wenn ein Mensch viel für andere tut, verliert er."
+      - "Der Wohlstand mancher wird auf Kosten vieler erlangt."
+   redistribution:
+      - "Der Staat trägt die Verantwortung, Unterschiede zwischen Menschen mit höherem und Menschen mit niedrigerem Einkommen zu verringern."
+      - "Der Staat sollte jedem, der arbeiten möchte, einen Arbeitsplatz bieten."
+      - "Der Staat sollte jeden mit einem garantierten Grundeinkommen versorgen."
+      - "Wir brauchen größere Einkommensunterschiede, um einen Anreiz für individuelles Bemühen zu schaffen."
+
+   vignette:
+      a:
+         names:
+            - "Mrs. Becker"
+            - "Mrs. Krüger"
+         statement: "Mrs. Becker and Mrs. Krüger recently started working in the Bonn branch of a real estate office. They were both hired on the basis of their impressive profiles, including interesting internships abroad. Their task consists of selling apartments in a newly built housing estate. The apartments are modern and designed in a family friendly manner. The complex is situated in a limited traffic zone, there is good public transport connectivity and there are two schools, a kindergarten and a shopping center in close proximity."
+         random: "At the end of the month, Mrs. Becker sold 6 and Mrs. Krüger 4 apartments. Mrs. Krüger received her monthly wage, while Mrs. Becker receives a bonus of 800 euros in addition to her monthly wage."
+         zsg: "Mrs. Becker und Mrs. Krüger are informed that, the one amongst them who manages to sell most apartments during the month will receive a bonus payment of 800 euros in addition to the monthly wage. During the month, Mrs. Becker sold 6 apartments and Mrs. Krüger sold 4 apartments, hence Mrs. Becker receives the bonus of 800 euros."
+         nzsg: "Mrs. Becker and Mrs. Krüger know that they can receive a bonus payment of 800 Euro on top of their monthly wage if they manage to sell 5 or more apartments. During the month Mrs. Becker sold 6 and Mrs. Krüger 4 apartments, so only Mrs. Becker receives the bonus of 800 Euro."
+         case_questions:
+            - "How fair do you find this?"
+            - "Would you give Mrs. Krüger a part of Mrs. Becker's bonus?"
+            - "If so, how would you divide the bonus of 800 Euro between them?"
+            - "How would you divide the 800 euros, if Mrs. Becker sold 6 but Mrs. Krüger sold only 2 apartments?"
+      b:
+         names:
+            - "Mr. Zimmermann"
+            - "Mr. Hoffmann"
+         statement: "Mr. Zimmermann and Mr. Hoffmann work for a delicatessen in Hamburg. They are usually responsible for the organization and implementation of catering. This week, they have to arrange elaborate present boxes that contain a selection of first-class in-house products like international specialities, wine and pralines. These should be personalized and carefully packed for their regular customers, reflecting the quality of the delicatessen."
+         random: "Mr. Zimmermann put together 142 present boxes and Mr. Hoffmann put together 105 present boxes. At the end of the week, Mr. Zimmermann receives a bonus payment of 50 euros in addition to his weekly income."
+         zsg: "Mr. Zimmermann and Mr. Hoffmann are informed that, the one amongst them who manages to put together most boxes will receive a bonus payment of 50 euros in addition to their weekly income. Mr. Zimmermann put together 142 present boxes and Mr. Hoffmann put together 105 present boxes. Hence, Mr. Zimmermann receives the additional payment of 50 euros."
+         nzsg: "Mr. Zimmermann und Mr. Hoffmann know that, they will receive an additional 50 euros if they manage to put together 130 or more number of boxes. Mr. Zimmermann put together 142 present boxes and Mr. Hoffmann put together 105 present boxes. So, only Mr. Zimmermann receives the additional payment of 50 euros."
+         case_questions:
+            - "How fair do you find this?"
+            - "Would you give Mr. Hofmann a part of Mr. Zimmermann's bonus?"
+            - "If so, how would you divide the bonus of 50 Euro between them?"
+            - "How would you divide the 50 euros, if Mr. Zimmermann put together 142 but Mr. Hoffmann put together only 91 boxes"
+      c:
+         names:
+            - "Mr. Keller"
+            - "Mr. Meyer"
+         statement: "Mr. Keller and Mr. Meyer are students who work as bicycle delivery boys, for a newly established Berlin start-up during their semester break. The start-up has ties with a variety of restaurants. Both Mr. Keller and Mr. Meyer are enthusiastic and sporty bikers, who prefer indulging in sports and being outdoors rather than sitting at a desk. This job gives them the opportunity to gain some money during their vacation as well as getting fresh air and being active."
+         random: "On one working day, Mr. Keller delivered 13 orders and Mr. Meyer delivered 17 orders. At the end of the day, Mr. Keller receives his daily wage and Mr. Meyer receives a bonus of 20 euros in addition to his daily wage."
+         zsg: "Mr. Keller and Mr. Meyer are informed that, the one amongst them who manages deliver most orders will receive 20 euros in addition to their usual wage. Mr. Keller delivered 13 orders and Mr. Meyer delivered 17 orders, hence Mr. Meyer receives the additional payment of 20 euros."
+         nzsg: "Mr. Keller und Mr. Meyer know that, at the end of their working day they can receive 20 euros in addition to their regular wage, if they manage to deliver 15 orders or more. That particular day, Mr. Keller delivered 13 orders and Mr. Meyer delivered 17 orders, so only Mr. Meyer receives the additional 20 euros."
+         case_questions:
+            - "How fair do you find this?"
+            - "Would you give Mr. Keller a part of Mr. Meyer's bonus?"
+            - "If so, how would you divide the bonus of 20 Euro between them?"
+            - "How would you divide the 20 euros, if Mr. Meyer delivered 17 orders but Mr. Keller delivered only 13 orders?"
