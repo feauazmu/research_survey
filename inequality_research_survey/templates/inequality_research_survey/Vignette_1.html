@@ -25,6 +25,7 @@
          $('#id_undefined_question_2_1').change(function(){
                if (this.checked) {
                   $('#full_question_3').hide();
+                  $('#full_question_4').hide();
                   $('.otree-btn-next').show();
                }
          });
@@ -32,15 +33,15 @@
          $('#question_3_ok_button').click(function(){
             $('#full_question_4').show();
             $('.otree-btn-next').show();
-            
+
          });
 
-         $('#slider_money_q4').mousemove(function(){
+         $(document).on('input change', '#slider_money_q4', function(){
             var val = whenSliderChanged(document.getElementById("slider_money_q4").value);
             document.getElementById("name_1_value_q4").textContent = val;
          });
 
-         $('#slider_money_q3').mousemove(function(){
+         $(document).on('input change', '#slider_money_q3', function(){
             var val = whenSliderChanged(document.getElementById("slider_money_q3").value);
             document.getElementById("name_1_value_q3").textContent = val;
          });
