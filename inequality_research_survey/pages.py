@@ -281,7 +281,6 @@ page_sequence = [
     Vignette_1,
     Vignette_2,
     Vignette_3,
-    Feedback,
     # Beliefs_2,
     ExitPage,
     ]
