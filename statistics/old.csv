@@ -1,0 +1,181 @@
+participant.id_in_session,participant.code,participant.label,participant._is_bot,participant._index_in_pages,participant._max_page_index,participant._current_app_name,participant._current_page_name,participant.time_started,participant.visited,participant.mturk_worker_id,participant.mturk_assignment_id,participant.payoff,player.id_in_group,player.treatment,player.gender,player.age,player.nationality,player.education,player.field_of_work,player.political_party,player.bzsg_1,player.bzsg_2,player.bzsg_3,player.bzsg_4,player.bzsg_5,player.bzsg_6,player.bzsg_7,player.bzsg_8,player.redistribution_1,player.redistribution_2,player.redistribution_3,player.redistribution_4,player.undefined_question_1,player.undefined_question_2,player.undefined_question_3,player.undefined_question_4,player.zsg_question_1,player.zsg_question_2,player.zsg_question_3,player.zsg_question_4,player.nzsg_question_1,player.nzsg_question_2,player.nzsg_question_3,player.nzsg_question_4,player.feedback,player.payoff,group.id_in_subsession,subsession.round_number,session.code,session.label,session.experimenter_name,session.mturk_HITId,session.mturk_HITGroupId,session.comment,session.is_demo
+1,ge0eugfd,,0,1,16,,,2019-12-01 18:53:14.849616+00:00,1,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+2,g33kovcs,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 18:53:50.249208+00:00,1,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+3,2hrj9rcc,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 18:55:35.375709+00:00,1,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+4,8bhrzfhu,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:17:06.195699+00:00,1,,,0,4,treatment_4,2,61,1,1,11,6,,,,,,,,,,,,,2,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+5,jidnhg79,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:22:00.080992+00:00,1,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+6,9sfj3ero,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:22:08.380401+00:00,1,,,0,6,treatment_6,2,23,1,1,13,6,,,,,,,,,,,,,3,1,14,14,4,1,200,100,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+7,tqlxrtfy,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:22:18.145356+00:00,1,,,0,7,treatment_1,1,27,1,1,12,4,1,1,1,3,1,1,1,5,3,1,1,4,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+8,slbup518,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:22:44.161582+00:00,1,,,0,8,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+9,9d8ugthr,,0,15,16,inequality_research_survey,Feedback,2019-12-01 20:23:49.299868+00:00,1,,,0,9,treatment_3,2,21,1,3,10,2,3,7,5,4,2,6,2,3,5,6,4,2,4,0,0,0,2,0,0,0,1,0,0,0,,0,1,1,dys7tayj,,,,,,0
+10,84vo5y38,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:24:40.123684+00:00,1,,,0,10,treatment_4,1,24,1,1,12,6,,,,,,,,,,,,,4,1,0,0,3,0,0,0,1,0,0,0,,0,1,1,dys7tayj,,,,,,0
+11,vk08w9xk,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:24:41.038959+00:00,1,,,0,11,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+12,u9zsfsc5,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:24:43.641943+00:00,1,,,0,12,treatment_6,2,24,1,3,10,4,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+13,kzcapyui,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:26:17.232937+00:00,1,,,0,13,treatment_1,2,29,1,1,7,1,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+14,jsm5glkv,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:27:20.414160+00:00,1,,,0,14,treatment_2,3,25,1,1,13,2,,,,,,,,,,,,,3,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+15,60vurzy0,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:27:36.615114+00:00,1,,,0,15,treatment_3,2,27,1,3,13,1,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+16,2g9awyxa,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:31:12.620800+00:00,1,,,0,16,treatment_4,2,34,1,6,4,2,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+17,srfaxn9v,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:32:18.729419+00:00,1,,,0,17,treatment_5,2,21,1,3,13,6,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+18,7jav0tns,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:32:53.322546+00:00,1,,,0,18,treatment_6,2,19,1,3,13,6,,,,,,,,,,,,,2,0,0,0,3,0,0,0,3,0,0,0,,0,1,1,dys7tayj,,,,,,0
+19,l6brpoz7,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:35:33.238228+00:00,1,,,0,19,treatment_1,2,21,1,1,13,4,2,3,2,5,2,1,1,6,6,5,7,1,3,1,0,0,2,0,0,0,4,0,0,0,,0,1,1,dys7tayj,,,,,,0
+20,he195td1,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-01 20:35:48.229559+00:00,1,,,0,20,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+21,xo00x15a,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:40:56.753078+00:00,1,,,0,21,treatment_3,2,77,2,3,6,4,7,7,7,7,7,7,7,7,7,7,7,1,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+22,gq79b8lw,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:41:11.051764+00:00,1,,,0,22,treatment_4,2,40,1,1,11,6,,,,,,,,,,,,,2,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+23,jmkmlq0h,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:42:14.016924+00:00,1,,,0,23,treatment_5,1,18,1,3,13,6,2,5,5,3,5,5,2,5,7,7,5,2,1,0,0,0,1,0,0,0,1,0,0,0,,0,1,1,dys7tayj,,,,,,0
+24,7j50oidj,,0,5,16,inequality_research_survey,Vignette_2,2019-12-01 20:45:50.502001+00:00,1,,,0,24,treatment_6,2,20,1,3,13,1,,,,,,,,,,,,,3,0,0,0,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+25,4wqwvcoh,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:47:29.134436+00:00,1,,,0,25,treatment_1,2,24,1,1,13,6,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+26,20f6bub2,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:47:42.651902+00:00,1,,,0,26,treatment_2,1,20,1,3,13,6,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+27,2gzgesew,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:48:50.707990+00:00,1,,,0,27,treatment_3,2,22,1,3,13,6,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+28,bk2dhao7,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:56:15.686817+00:00,1,,,0,28,treatment_4,2,30,1,1,12,6,,,,,,,,,,,,,3,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+29,f73h0kq6,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:56:44.209962+00:00,1,,,0,29,treatment_5,1,59,1,1,9,6,5,3,4,5,4,6,3,6,7,6,6,1,3,0,0,0,4,1,350,251,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+30,458wq57g,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 21:09:47.626585+00:00,1,,,0,30,treatment_6,2,37,1,1,12,2,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+31,nwvs6ein,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 21:17:28.085380+00:00,1,,,0,31,treatment_1,1,20,1,3,13,4,1,1,1,3,1,1,1,3,5,4,4,2,2,0,0,0,2,0,0,0,3,0,0,0,,0,1,1,dys7tayj,,,,,,0
+32,ui0nnwhv,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 21:21:17.071717+00:00,1,,,0,32,treatment_2,1,25,1,1,13,6,,,,,,,,,,,,,3,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+33,n8v55xgq,,0,15,16,inequality_research_survey,Feedback,2019-12-01 21:36:30.523245+00:00,1,,,0,33,treatment_3,2,20,1,3,13,6,2,2,2,3,2,2,2,2,5,6,6,1,2,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+34,si7wp6bj,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 21:57:22.644529+00:00,1,,,0,34,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+35,tpz1hwsx,,0,3,16,inequality_research_survey,Beliefs,2019-12-02 09:18:13.774727+00:00,1,,,0,35,treatment_5,2,21,1,3,13,5,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+36,tz8tme5p,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 10:05:47.445806+00:00,1,,,0,36,treatment_6,1,20,1,3,13,1,,,,,,,,,,,,,2,0,0,0,2,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+37,9igvkigp,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 12:18:58.868676+00:00,1,,,0,37,treatment_1,2,33,2,5,4,3,4,4,4,4,4,4,4,4,4,4,4,4,3,1,276,293,2,1,19,19,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+38,htnqmslq,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 12:23:27.875343+00:00,1,,,0,38,treatment_2,2,31,1,1,8,4,,,,,,,,,,,,,4,0,0,0,1,0,0,0,1,0,0,0,,0,1,1,dys7tayj,,,,,,0
+39,tbs9slzf,,0,3,16,inequality_research_survey,Beliefs,2019-12-02 15:44:33.138317+00:00,1,,,0,39,treatment_3,2,22,2,2,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+40,4ln9hgtz,,0,0,16,,,,1,,,0,40,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+41,78las1ha,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-02 16:43:19.139356+00:00,1,,,0,41,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+42,l5dedkg4,,0,1,16,inequality_research_survey,WelcomePage,2019-12-02 18:50:01.070807+00:00,1,,,0,42,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+43,fc79wcul,,0,0,16,,,,1,,,0,43,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+44,st7i4ezm,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-02 18:50:04.868292+00:00,1,,,0,44,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+45,fuz7ieod,,0,4,16,inequality_research_survey,Vignette_1,2019-12-02 19:44:36.638137+00:00,1,,,0,45,treatment_3,2,56,3,2,5,8,1,1,1,3,1,1,1,1,4,1,4,1,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+46,48so4lfx,,0,1,16,inequality_research_survey,WelcomePage,2019-12-02 21:30:15.294070+00:00,1,,,0,46,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+47,25e0rvxc,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 13:03:02.262326+00:00,1,,,0,47,treatment_5,1,35,1,1,9,2,3,3,3,2,2,3,2,4,6,6,7,4,4,0,0,0,4,0,0,0,2,0,0,0,,0,1,1,dys7tayj,,,,,,0
+48,8wfta4l9,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 13:42:00.808407+00:00,1,,,0,48,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+49,iost2e7u,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 13:44:36.467221+00:00,1,,,0,49,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+50,jc0564mb,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 18:36:44.490030+00:00,1,,,0,50,treatment_2,1,22,2,1,7,4,,,,,,,,,,,,,1,0,0,0,1,0,0,0,1,0,0,0,,0,1,1,dys7tayj,,,,,,0
+51,08y8iux0,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 19:50:26.456506+00:00,1,,,0,51,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+52,03gm8p4b,,0,0,16,,,,0,,,0,52,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+53,ikgc692c,,0,0,16,,,,0,,,0,53,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+54,gv2hq0jv,,0,0,16,,,,0,,,0,54,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+55,1ps35t67,,0,0,16,,,,0,,,0,55,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+56,nvjigh6x,,0,0,16,,,,0,,,0,56,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+57,txequg1b,,0,0,16,,,,0,,,0,57,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+58,a2kg659t,,0,0,16,,,,0,,,0,58,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+59,lwysp5ft,,0,0,16,,,,0,,,0,59,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+60,a7diku5i,,0,0,16,,,,0,,,0,60,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,dys7tayj,,,,,,0
+1,ge0eugfd,,0,1,16,,,2019-12-01 18:53:14.849616+00:00,1,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+2,g33kovcs,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 18:53:50.249208+00:00,1,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+3,2hrj9rcc,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 18:55:35.375709+00:00,1,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+4,8bhrzfhu,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:17:06.195699+00:00,1,,,0,4,treatment_4,,,,,,,6,7,4,4,7,7,2,7,5,5,5,1,,,,,,,,,,,,,Interessant,0,1,2,dys7tayj,,,,,,0
+5,jidnhg79,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:22:00.080992+00:00,1,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+6,9sfj3ero,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:22:08.380401+00:00,1,,,0,6,treatment_6,,,,,,,2,5,3,3,1,6,1,4,6,5,2,1,,,,,,,,,,,,,Ich habe den Fragebogen mit dem Smartphone ausgefüllt. Ich fand es etwas mühsam die Regler einzustellen und die Summe beider Seiten ergab nicht den Gesamtbetrag.,0,1,2,dys7tayj,,,,,,0
+7,tqlxrtfy,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:22:18.145356+00:00,1,,,0,7,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+8,slbup518,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:22:44.161582+00:00,1,,,0,8,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+9,9d8ugthr,,0,15,16,inequality_research_survey,Feedback,2019-12-01 20:23:49.299868+00:00,1,,,0,9,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+10,84vo5y38,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:24:40.123684+00:00,1,,,0,10,treatment_4,,,,,,,2,5,6,1,3,3,1,5,6,5,6,2,,,,,,,,,,,,,"Die Riegel zum einstellen des Betrags, den Person A der Person B abgeben soll, funktionieren auf (meinem?) Smartphone nicht. Manche Fragen am Schluss erscheinen doppelt.",0,1,2,dys7tayj,,,,,,0
+11,vk08w9xk,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 20:24:41.038959+00:00,1,,,0,11,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+12,u9zsfsc5,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:24:43.641943+00:00,1,,,0,12,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+13,kzcapyui,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:26:17.232937+00:00,1,,,0,13,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+14,jsm5glkv,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:27:20.414160+00:00,1,,,0,14,treatment_2,,,,,,,2,5,2,2,1,5,1,6,4,1,3,1,,,,,,,,,,,,,Teilweise sehr drastisch formulierte Fragen am Ende.,0,1,2,dys7tayj,,,,,,0
+15,60vurzy0,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:27:36.615114+00:00,1,,,0,15,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+16,2g9awyxa,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:31:12.620800+00:00,1,,,0,16,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+17,srfaxn9v,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:32:18.729419+00:00,1,,,0,17,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+18,7jav0tns,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:32:53.322546+00:00,1,,,0,18,treatment_6,,,,,,,5,7,5,7,5,7,2,6,7,6,7,5,,,,,,,,,,,,,"Alles gut, die anzeige mit 1 - 7 aber bisschen verwirrend, weil auf den handy nicht in einer zeile. Die Fragen sind teilweise auch sehr ähnlich",0,1,2,dys7tayj,,,,,,0
+19,l6brpoz7,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:35:33.238228+00:00,1,,,0,19,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Der Schieberegler bei der Frage welchen Anteil der Boni abgegeben werden sollte funktioniert auf meinem Smartphone leider nicht,0,1,2,dys7tayj,,,,,,0
+20,he195td1,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-01 20:35:48.229559+00:00,1,,,0,20,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+21,xo00x15a,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:40:56.753078+00:00,1,,,0,21,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+22,gq79b8lw,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:41:11.051764+00:00,1,,,0,22,treatment_4,,,,,,,5,5,2,6,5,5,6,7,7,6,7,1,,,,,,,,,,,,,Ooo,0,1,2,dys7tayj,,,,,,0
+23,jmkmlq0h,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:42:14.016924+00:00,1,,,0,23,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,0,1,2,dys7tayj,,,,,,0
+24,7j50oidj,,0,5,16,inequality_research_survey,Vignette_2,2019-12-01 20:45:50.502001+00:00,1,,,0,24,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+25,4wqwvcoh,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:47:29.134436+00:00,1,,,0,25,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+26,20f6bub2,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 20:47:42.651902+00:00,1,,,0,26,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+27,2gzgesew,,0,3,16,inequality_research_survey,Beliefs,2019-12-01 20:48:50.707990+00:00,1,,,0,27,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+28,bk2dhao7,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:56:15.686817+00:00,1,,,0,28,treatment_4,,,,,,,1,3,2,1,1,1,1,6,6,6,1,1,,,,,,,,,,,,,"Guten Tag,   Ich finde die Sätze in den Situationsbeschreibungen deutlich zu lang und zu verschachtelt. M.E. schließt man so bereits durch die komplizierte Sprache Teilnehmer von der Teilnahme an der Umfrage aus.",0,1,2,dys7tayj,,,,,,0
+29,f73h0kq6,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 20:56:44.209962+00:00,1,,,0,29,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gut,0,1,2,dys7tayj,,,,,,0
+30,458wq57g,,0,4,16,inequality_research_survey,Vignette_1,2019-12-01 21:09:47.626585+00:00,1,,,0,30,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+31,nwvs6ein,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 21:17:28.085380+00:00,1,,,0,31,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-,0,1,2,dys7tayj,,,,,,0
+32,ui0nnwhv,,0,16,16,inequality_research_survey,ExitPage,2019-12-01 21:21:17.071717+00:00,1,,,0,32,treatment_2,,,,,,,1,5,6,5,1,7,1,7,7,7,6,1,,,,,,,,,,,,,Kein Feedback,0,1,2,dys7tayj,,,,,,0
+33,n8v55xgq,,0,15,16,inequality_research_survey,Feedback,2019-12-01 21:36:30.523245+00:00,1,,,0,33,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+34,si7wp6bj,,0,1,16,inequality_research_survey,WelcomePage,2019-12-01 21:57:22.644529+00:00,1,,,0,34,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+35,tpz1hwsx,,0,3,16,inequality_research_survey,Beliefs,2019-12-02 09:18:13.774727+00:00,1,,,0,35,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+36,tz8tme5p,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 10:05:47.445806+00:00,1,,,0,36,treatment_6,,,,,,,1,2,2,2,2,3,1,5,3,6,4,3,,,,,,,,,,,,,.,0,1,2,dys7tayj,,,,,,0
+37,9igvkigp,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 12:18:58.868676+00:00,1,,,0,37,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,jjj,0,1,2,dys7tayj,,,,,,0
+38,htnqmslq,,0,16,16,inequality_research_survey,ExitPage,2019-12-02 12:23:27.875343+00:00,1,,,0,38,treatment_2,,,,,,,1,1,1,2,1,1,1,1,4,7,4,3,,,,,,,,,,,,,Wirkte teilweise suggestiv - auf die Ergebnisse bin ich gespannt. :),0,1,2,dys7tayj,,,,,,0
+39,tbs9slzf,,0,3,16,inequality_research_survey,Beliefs,2019-12-02 15:44:33.138317+00:00,1,,,0,39,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+40,4ln9hgtz,,0,0,16,,,,1,,,0,40,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+41,78las1ha,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-02 16:43:19.139356+00:00,1,,,0,41,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+42,l5dedkg4,,0,1,16,inequality_research_survey,WelcomePage,2019-12-02 18:50:01.070807+00:00,1,,,0,42,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+43,fc79wcul,,0,0,16,,,,1,,,0,43,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+44,st7i4ezm,,0,2,16,inequality_research_survey,DemographicQuestions,2019-12-02 18:50:04.868292+00:00,1,,,0,44,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+45,fuz7ieod,,0,4,16,inequality_research_survey,Vignette_1,2019-12-02 19:44:36.638137+00:00,1,,,0,45,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+46,48so4lfx,,0,1,16,inequality_research_survey,WelcomePage,2019-12-02 21:30:15.294070+00:00,1,,,0,46,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+47,25e0rvxc,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 13:03:02.262326+00:00,1,,,0,47,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ganz toll,0,1,2,dys7tayj,,,,,,0
+48,8wfta4l9,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 13:42:00.808407+00:00,1,,,0,48,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+49,iost2e7u,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 13:44:36.467221+00:00,1,,,0,49,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+50,jc0564mb,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 18:36:44.490030+00:00,1,,,0,50,treatment_2,,,,,,,1,1,1,3,1,1,1,1,4,5,7,7,,,,,,,,,,,,,Eine sehr spannende Studie...gerne mehr davon.,0,1,2,dys7tayj,,,,,,0
+51,08y8iux0,,0,1,16,inequality_research_survey,WelcomePage,2019-12-03 19:50:26.456506+00:00,1,,,0,51,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+52,03gm8p4b,,0,0,16,,,,0,,,0,52,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+53,ikgc692c,,0,0,16,,,,0,,,0,53,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+54,gv2hq0jv,,0,0,16,,,,0,,,0,54,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+55,1ps35t67,,0,0,16,,,,0,,,0,55,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+56,nvjigh6x,,0,0,16,,,,0,,,0,56,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+57,txequg1b,,0,0,16,,,,0,,,0,57,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+58,a2kg659t,,0,0,16,,,,0,,,0,58,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+59,lwysp5ft,,0,0,16,,,,0,,,0,59,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+60,a7diku5i,,0,0,16,,,,0,,,0,60,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,dys7tayj,,,,,,0
+1,63u6bgu9,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+2,ko2aixue,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+3,mxcxujkk,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+4,xl61fhdv,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+5,0u3a8wzf,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+6,r9bd4fh6,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,s0ao5qdk,,,,,,1
+1,63u6bgu9,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+2,ko2aixue,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+3,mxcxujkk,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+4,xl61fhdv,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+5,0u3a8wzf,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+6,r9bd4fh6,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,s0ao5qdk,,,,,,1
+1,1gl5wr3j,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+2,jkgyy0kv,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+3,0l3lafpv,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+4,9wqmbgh5,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+5,xfwyxs8y,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+6,xg5hjphy,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,esi35qtb,,,,,,1
+1,1gl5wr3j,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+2,jkgyy0kv,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+3,0l3lafpv,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+4,9wqmbgh5,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+5,xfwyxs8y,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+6,xg5hjphy,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,esi35qtb,,,,,,1
+1,z6huqs6s,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 15:31:44.997712+00:00,1,,,0,1,treatment_1,1,22,3,1,7,5,3,2,2,2,2,2,2,6,6,5,6,4,1,0,0,0,1,0,0,0,3,0,0,0,,0,1,1,4qbdy8ci,,,,,,1
+2,rwg14nie,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,4qbdy8ci,,,,,,1
+3,92ugpbpo,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,4qbdy8ci,,,,,,1
+4,35krckmc,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,4qbdy8ci,,,,,,1
+5,em7svw7j,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,4qbdy8ci,,,,,,1
+6,sgtmvism,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,4qbdy8ci,,,,,,1
+1,z6huqs6s,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 15:31:44.997712+00:00,1,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:),0,1,2,4qbdy8ci,,,,,,1
+2,rwg14nie,,0,0,16,,,,0,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,4qbdy8ci,,,,,,1
+3,92ugpbpo,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,4qbdy8ci,,,,,,1
+4,35krckmc,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,4qbdy8ci,,,,,,1
+5,em7svw7j,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,4qbdy8ci,,,,,,1
+6,sgtmvism,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,4qbdy8ci,,,,,,1
+1,tltuln58,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,ak03sz14,,,,,,1
+2,kzkf4dma,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 16:23:37.061900+00:00,1,,,0,2,treatment_2,1,25,1,1,2,2,,,,,,,,,,,,,1,1,390,401,4,1,17,15,3,0,0,0,,0,1,1,ak03sz14,,,,,,1
+3,ukutuo0u,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,ak03sz14,,,,,,1
+4,oximmbsb,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,ak03sz14,,,,,,1
+5,eg632a8i,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,ak03sz14,,,,,,1
+6,9fbbgxwl,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,ak03sz14,,,,,,1
+1,tltuln58,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,ak03sz14,,,,,,1
+2,kzkf4dma,,0,16,16,inequality_research_survey,ExitPage,2019-12-03 16:23:37.061900+00:00,1,,,0,2,treatment_2,,,,,,,4,4,4,3,3,3,3,2,2,3,3,3,,,,,,,,,,,,,🔥,0,1,2,ak03sz14,,,,,,1
+3,ukutuo0u,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,ak03sz14,,,,,,1
+4,oximmbsb,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,ak03sz14,,,,,,1
+5,eg632a8i,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,ak03sz14,,,,,,1
+6,9fbbgxwl,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,ak03sz14,,,,,,1
+1,l60ug1iq,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,xu6noatk,,,,,,1
+2,9v1esrh5,,0,11,16,inequality_research_survey,Beliefs,2019-12-03 16:48:21.765775+00:00,1,,,0,2,treatment_2,1,36,1,1,1,1,,,,,,,,,,,,,2,1,403,390,2,1,36,33,3,1,5,5,,0,1,1,xu6noatk,,,,,,1
+3,thjdra59,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,xu6noatk,,,,,,1
+4,rnxxk2ee,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,xu6noatk,,,,,,1
+5,fqogv29n,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,xu6noatk,,,,,,1
+6,npvrwct3,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,1,xu6noatk,,,,,,1
+1,l60ug1iq,,0,0,16,,,,0,,,0,1,treatment_1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
+2,9v1esrh5,,0,11,16,inequality_research_survey,Beliefs,2019-12-03 16:48:21.765775+00:00,1,,,0,2,treatment_2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
+3,thjdra59,,0,0,16,,,,0,,,0,3,treatment_3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
+4,rnxxk2ee,,0,0,16,,,,0,,,0,4,treatment_4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
+5,fqogv29n,,0,0,16,,,,0,,,0,5,treatment_5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
+6,npvrwct3,,0,0,16,,,,0,,,0,6,treatment_6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,1,2,xu6noatk,,,,,,1
