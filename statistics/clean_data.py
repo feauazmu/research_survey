@@ -13,19 +13,21 @@ from factor_analyzer.factor_analyzer import calculate_kmo
 
 df = pd.read_csv('statistics/inequality_research_survey.csv')
 
-#select uninteresting columns and drop them
+#select uninteresting columns to drop them
 drop_cols = [c for c in df.columns if c.lower()[:4] in ['part', 'sess', '1.gr', '1.su', '2.pa', '2.se']]
-noninfo_cols = ['inequality_research_survey.1.player.id_in_group', 'inequality_research_survey.1.player.payoff',
+noninfo_cols = ['index', 'inequality_research_survey.1.player.id_in_group', 'inequality_research_survey.1.player.payoff',
     'inequality_research_survey.1.player.feedback', 'inequality_research_survey.1.subsession.round_number',
     'inequality_research_survey.1.group.id_in_subsession', 'inequality_research_survey.2.player.id_in_group',
     'inequality_research_survey.2.player.payoff', 'inequality_research_survey.2.player.feedback',
     'inequality_research_survey.2.subsession.round_number', 'inequality_research_survey.2.group.id_in_subsession',
     ]
-drop_cols.extend(noninfo_cols)
 
-df = df.drop(columns=drop_cols)
-df = df[(pd.notnull(df['inequality_research_survey.1.player.gender']) & pd.notnull(df['inequality_research_survey.1.player.age']))]
-df.columns
+player2_cols = [c for c in df.columns if c.lower()[:28] in ['inequality_research_survey.2']]
+
+drop_cols.extend(noninfo_cols)
+drop_cols.extend(player2_cols)
+
+
 
 #bring answers in "2/1.player" to the same column. bszg and redistribution questions
 for i in range(1,9):
@@ -37,29 +39,34 @@ for i in range(1,5):
     column_redist = 'inequality_research_survey.1.player.redistribution_{}'.format(i)
     column_redist2 = 'inequality_research_survey.2.player.redistribution_{}'.format(i)
     df[column_redist]= np.where(df[column_redist].isnull(), df[column_redist2], df[column_redist])
-df = df[pd.notnull(df['inequality_research_survey.1.player.bzsg_1'])]
-df.reset_index()
 
 
+df = df.reset_index()
+
+#drop columns
+df = df.drop(columns=drop_cols)
+
+#rename columns
+short_columns = [c.replace('inequality_research_survey.1.player.', '') for c in df.columns]
+df.columns = short_columns
+
+#drop incomplete rows
+df = df[pd.notnull(df['bzsg_1'])]
+df = df[(pd.notnull(df['gender']) & pd.notnull(df['age']))]
 
 #norm data and create indexes
-df_bzsg = df.iloc[:,7:15]
-#df_bzsg = df_bzsg[(pd.notnull(df_bzsg['inequality_research_survey.1.player.bzsg_1']))]
+df_bzsg = df.iloc[:,8:16]
 
-
+#df_bzsg = df_bzsg[(pd.notnull(df_bzsg['bzsg_1']))]
 df_nbzsg = (df_bzsg-1)/6
-df_nbzsg
 df['nbzsg_avg'] = df_nbzsg.mean(axis=1, skipna = True)
-df['nbzsg_avg']
-df_redist = df.iloc[:,15:19]
+
+df_redist = df.iloc[:,16:20]
     #invert question 4
-#df_redist['inequality_research_survey.1.player.redistribution_4'] = 7 - df_redist['inequality_research_survey.1.player.redistribution_4']
-df_redist = df_redist[(pd.notnull(df_redist['inequality_research_survey.1.player.redistribution_4']))]
+df_redist['redistribution_4'] = 7 - df_redist['redistribution_4']
+#df_redist = df_redist[(pd.notnull(df_redist['redistribution_4']))]
 df_nredist = (df_redist-1)/6
 df['nredist_avg'] = df_nredist.mean(axis=1, skipna = True)
-
-
-
 
 #Factor analysis
 #Bartlett’s Test (is the true correlation matrix an identity matrix?)
@@ -124,52 +131,40 @@ pd.DataFrame(fa.loadings_)
 #create factor
 df['redist_factor'] = -np.dot(df_nredist, pd.DataFrame(fa.loadings_))
 
-
-#drop 2.player columns
-drop_cols = [c for c in df.columns if c.lower()[:28] in ['inequality_research_survey.2']]
-df = df.drop(columns=drop_cols)
-
-
-
-
 #norm payments by treatment
 for index, row in df.iterrows():
-    if row['inequality_research_survey.1.player.treatment'] == ['treatment_1', 'treatment_2']:
+    if row['treatment'] in ['treatment_1', 'treatment_2']:
 
-        df['inequality_research_survey.1.player.undefined_question_3'] /= 800
-        df['inequality_research_survey.1.player.undefined_question_4'] /= 800
+        df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 800
+        df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 800
 
-        df['inequality_research_survey.1.player.zsg_question_3'] /= 50
-        df['inequality_research_survey.1.player.zsg_question_4'] /= 50
+        df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 50
+        df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 50
 
-        df['inequality_research_survey.1.player.nzsg_question_3'] /= 20
-        df['inequality_research_survey.1.player.nzsg_question_4'] /= 20
+        df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
+        df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 20
 
-    if row['inequality_research_survey.1.player.treatment'] == ['treatment_3', 'treatment_4']:
+    if row['treatment'] in ['treatment_3', 'treatment_4']:
 
-        df['inequality_research_survey.1.player.undefined_question_3'] /= 50
-        df['inequality_research_survey.1.player.undefined_question_4'] /= 50
+        df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 50
+        df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 50
 
-        df['inequality_research_survey.1.player.zsg_question_3'] /= 20
-        df['inequality_research_survey.1.player.zsg_question_4'] /= 20
+        df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 20
+        df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 20
 
-        df['inequality_research_survey.1.player.nzsg_question_3'] /= 800
-        df['inequality_research_survey.1.player.nzsg_question_4'] /= 800
+        df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 800
+        df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 800
 
-    if row['inequality_research_survey.1.player.treatment'] == ['treatment_5', 'treatment_6']:
+    if row['treatment'] in ['treatment_5', 'treatment_6']:
 
-        df['inequality_research_survey.1.player.undefined_question_3'] /= 20
-        df['inequality_research_survey.1.player.undefined_question_4'] /= 20
+        df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 20
+        df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 20
 
-        df['inequality_research_survey.1.player.zsg_question_3'] /= 800
-        df['inequality_research_survey.1.player.zsg_question_4'] /= 800
+        df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 800
+        df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 800
 
-        df['inequality_research_survey.1.player.nzsg_question_3'] /= 50
-        df['inequality_research_survey.1.player.nzsg_question_4'] /= 50
-df.columns
+        df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 50
+        df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 50
 
-    if row['inequality_research_survey.1.player.treatment'] == ['treatment_1', 'treatment_2']:
-        df['inequality_research_survey.1.player.undefined_question_3'] /= 800
-        df['inequality_research_survey.1.player.undefined_question_4'] /= 800
 
 df.to_csv(index=True, path_or_buf='cleaned_data.csv')
