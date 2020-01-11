@@ -1,0 +1,150 @@
+OLS Regression Results
+==============================================================================
+Dep. Variable:         zsg_question_3   R-squared:                       0.047
+Model:                            OLS   Adj. R-squared:                  0.043
+Method:                 Least Squares   F-statistic:                     11.89
+Date:                Sat, 11 Jan 2020   Prob (F-statistic):           0.000665
+Time:                        17:02:04   Log-Likelihood:                 58.325
+No. Observations:                 244   AIC:                            -112.6
+Df Residuals:                     242   BIC:                            -105.7
+Df Model:                           1
+Covariance Type:            nonrobust
+===============================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -0.0374      0.044     -0.849      0.397      -0.124       0.049
+nredist_avg     0.2134      0.062      3.449      0.001       0.091       0.335
+==============================================================================
+Omnibus:                       51.389   Durbin-Watson:                   2.045
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               78.159
+Skew:                           1.360   Prob(JB):                     1.07e-17
+Kurtosis:                       3.536   Cond. No.                         7.48
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+OLS Regression Results
+==============================================================================
+Dep. Variable:         zsg_question_3   R-squared:                       0.031
+Model:                            OLS   Adj. R-squared:                  0.027
+Method:                 Least Squares   F-statistic:                     7.649
+Date:                Sat, 11 Jan 2020   Prob (F-statistic):            0.00612
+Time:                        17:02:06   Log-Likelihood:                 56.268
+No. Observations:                 244   AIC:                            -108.5
+Df Residuals:                     242   BIC:                            -101.5
+Df Model:                           1
+Covariance Type:            nonrobust
+=================================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         0.0036      0.040      0.090      0.928      -0.075       0.082
+redist_factor     0.1530      0.055      2.766      0.006       0.044       0.262
+==============================================================================
+Omnibus:                       53.788   Durbin-Watson:                   2.045
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               83.445
+Skew:                           1.403   Prob(JB):                     7.59e-19
+Kurtosis:                       3.582   Cond. No.                         6.66
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+OLS Regression Results
+==============================================================================
+Dep. Variable:        nzsg_question_3   R-squared:                       0.104
+Model:                            OLS   Adj. R-squared:                  0.101
+Method:                 Least Squares   F-statistic:                     28.17
+Date:                Sat, 11 Jan 2020   Prob (F-statistic):           2.52e-07
+Time:                        17:04:37   Log-Likelihood:                 79.406
+No. Observations:                 244   AIC:                            -154.8
+Df Residuals:                     242   BIC:                            -147.8
+Df Model:                           1
+Covariance Type:            nonrobust
+===============================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -0.1110      0.040     -2.747      0.006      -0.191      -0.031
+nredist_avg     0.3012      0.057      5.307      0.000       0.189       0.413
+==============================================================================
+Omnibus:                       60.748   Durbin-Watson:                   2.052
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               99.495
+Skew:                           1.433   Prob(JB):                     2.48e-22
+Kurtosis:                       4.255   Cond. No.                         7.48
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+OLS Regression Results
+==============================================================================
+Dep. Variable:        nzsg_question_3   R-squared:                       0.093
+Model:                            OLS   Adj. R-squared:                  0.089
+Method:                 Least Squares   F-statistic:                     24.78
+Date:                Sat, 11 Jan 2020   Prob (F-statistic):           1.22e-06
+Time:                        17:04:38   Log-Likelihood:                 77.869
+No. Observations:                 244   AIC:                            -151.7
+Df Residuals:                     242   BIC:                            -144.7
+Df Model:                           1
+Covariance Type:            nonrobust
+=================================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept        -0.0779      0.037     -2.133      0.034      -0.150      -0.006
+redist_factor     0.2520      0.051      4.978      0.000       0.152       0.352
+==============================================================================
+Omnibus:                       60.350   Durbin-Watson:                   2.027
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               98.100
+Skew:                           1.443   Prob(JB):                     4.99e-22
+Kurtosis:                       4.147   Cond. No.                         6.66
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+ OLS Regression Results
+================================================================================
+Dep. Variable:     undefined_question_3   R-squared:                       0.064
+Model:                              OLS   Adj. R-squared:                  0.060
+Method:                   Least Squares   F-statistic:                     16.64
+Date:                  Sat, 11 Jan 2020   Prob (F-statistic):           6.15e-05
+Time:                          17:05:32   Log-Likelihood:                 12.386
+No. Observations:                   244   AIC:                            -20.77
+Df Residuals:                       242   BIC:                            -13.78
+Df Model:                             1
+Covariance Type:              nonrobust
+===============================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+Intercept      -0.0260      0.053     -0.488      0.626      -0.131       0.079
+nredist_avg     0.3046      0.075      4.079      0.000       0.158       0.452
+==============================================================================
+Omnibus:                       25.277   Durbin-Watson:                   2.037
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               30.501
+Skew:                           0.852   Prob(JB):                     2.38e-07
+Kurtosis:                       2.684   Cond. No.                         7.48
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+ OLS Regression Results
+================================================================================
+Dep. Variable:     undefined_question_3   R-squared:                       0.046
+Model:                              OLS   Adj. R-squared:                  0.042
+Method:                   Least Squares   F-statistic:                     11.56
+Date:                  Sat, 11 Jan 2020   Prob (F-statistic):           0.000786
+Time:                          17:05:33   Log-Likelihood:                 9.9702
+No. Observations:                   244   AIC:                            -15.94
+Df Residuals:                       242   BIC:                            -8.946
+Df Model:                             1
+Covariance Type:              nonrobust
+=================================================================================
+coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept         0.0264      0.048      0.547      0.585      -0.069       0.121
+redist_factor     0.2274      0.067      3.401      0.001       0.096       0.359
+==============================================================================
+Omnibus:                       26.440   Durbin-Watson:                   2.030
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               31.019
+Skew:                           0.847   Prob(JB):                     1.84e-07
+Kurtosis:                       2.575   Cond. No.                         6.66
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

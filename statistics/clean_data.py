@@ -51,32 +51,33 @@ short_columns = [c.replace('inequality_research_survey.1.player.', '') for c in 
 df.columns = short_columns
 
 #drop incomplete rows
-df = df[pd.notnull(df['bzsg_1'])]
-df = df[(pd.notnull(df['gender']) & pd.notnull(df['age']))]
+df =df.dropna()
 
 #norm data and create indexes
-df_bzsg = df.iloc[:,8:16]
+df_bzsg = df.iloc[:,7:15]
 
 #df_bzsg = df_bzsg[(pd.notnull(df_bzsg['bzsg_1']))]
 df_nbzsg = (df_bzsg-1)/6
+df_nbzsg
 df['nbzsg_avg'] = df_nbzsg.mean(axis=1, skipna = True)
 
-df_redist = df.iloc[:,16:20]
+df_redist = df.iloc[:,15:19]
     #invert question 4
-df_redist['redistribution_4'] = 7 - df_redist['redistribution_4']
+df_redist['redistribution_4'] = 8 - df_redist['redistribution_4']
 #df_redist = df_redist[(pd.notnull(df_redist['redistribution_4']))]
 df_nredist = (df_redist-1)/6
+df_nredist
 df['nredist_avg'] = df_nredist.mean(axis=1, skipna = True)
-
+df['nredist_avg'].max()
 #Factor analysis
 #Bartlett’s Test (is the true correlation matrix an identity matrix?)
-chi_square_value,p_value=calculate_bartlett_sphericity(df_bzsg)
+chi_square_value,p_value=calculate_bartlett_sphericity(df_nbzsg)
 print(chi_square_value, p_value)
 chi_square_value,p_value=calculate_bartlett_sphericity(df_nredist)
 print(chi_square_value, p_value)
 
 #Kaiser-Meyer-Olkin Test   (proportion of variance among all the observed variable) //value [0,1] > 0.6 => OK
-kmo_all,kmo_model=calculate_kmo(df_nbzsg)    #not working with norm data! (determinant too close to zero)
+kmo_all,kmo_model=calculate_kmo(df_nbzsg)
 print('bszg:', kmo_model)
 kmo_all,kmo_model=calculate_kmo(df_nredist)
 print('redist:', kmo_model)
@@ -103,7 +104,8 @@ plt.plot(range(1,df_nbzsg.shape[1]+1),ev)
 
 # Get variance of each factors
 pd.DataFrame(fa.get_factor_variance())
-pd.DataFrame(fa.loadings_)
+b=pd.DataFrame(fa.loadings_)
+b.sum()
 #create factor
 df['bzsg_factor'] = np.dot(df_nbzsg, pd.DataFrame(fa.loadings_))
 
@@ -123,11 +125,12 @@ plt.plot(range(1,df_nredist.shape[1]+1),ev)
 # plt.ylabel('Eigenvalue')
 # plt.grid()
 # plt.show()
-
-
-# Get variance of each factors
 pd.DataFrame(fa.get_factor_variance())
-pd.DataFrame(fa.loadings_)
+a = pd.DataFrame(fa.loadings_)
+a.sum()
+# Get variance of each factors
+#pd.DataFrame(fa.get_factor_variance())
+#pd.DataFrame(fa.loadings_)
 #create factor
 df['redist_factor'] = -np.dot(df_nredist, pd.DataFrame(fa.loadings_))
 
