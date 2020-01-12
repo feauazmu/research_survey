@@ -31,7 +31,7 @@ redist1 = df[df['zero_redist'] == 1 ]
 redist1[redist1['zsg_question_3'] != 0]
 
 #drop less interesting columns
-    drop_cols = []
+drop_cols = []
 drop_cols = [c for c in df.columns if c.lower()[:4] in ['bzsg', 'redi']]
 drop_cols.remove('bzsg_factor')
 drop_cols.remove('redist_factor')
@@ -44,11 +44,15 @@ df['nredist_avg'].min()
 #normalize factors
 df['bzsg_factor']= -df['bzsg_factor']/3.887762
 df['redist_factor'] = df['redist_factor']/1.871011
+
+
 #stata code
-mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor', data=df)
+mod = smf.ols(formula='redist_factor ~ bzsg_factor', data=df)
 
 res = mod.fit()
-print(res.summary())
+textfile = open('statistics/output/regressions/redist_on_bzsg_factors.txt', 'w')
+textfile.write(res.summary().as_latex())
+textfile.close()
 
 
 mod = smf.ols(formula='avg_redist_amount ~ age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ redist_factor + C(political_party) +bzsg_factor ', data=df)
@@ -102,7 +106,7 @@ ax2.get_figure().savefig('statistics/output/graphs/Vigenttes_Mean_Redistributed_
 
 #Vignettes Updated redistributed amount
 ax3 = df[['undefined_question_4', 'zsg_question_4', 'nzsg_question_4']].mean().plot(kind='bar', color=['m', 'blue', 'red' ])
-ax3.
+ax3.set_title('Vignettes: Updated Mean Redistributed Amount')
 ax3.set_ylabel('Fraction')
 ax3.set_xticklabels(vignette_names, rotation=0)
 #ax1.set(xlim=(-1, 3), ylim=(1, 4))
@@ -110,20 +114,20 @@ ax3.figure
 ax3.get_figure().savefig('statistics/output/graphs/Vigenttes_Updated_Mean_Redistributed_Amount.png')
 
 
-#
+#Distribution of reddistributed amount
 for name in vignettes:
-    print(name)
     b = df[df[name+'_question_2'] == 1][name+'_question_3'].plot.hist(bins=16)
+    b.set_title('Redistrubted Amount ' + name)
     b.set_xlabel('Fraction redistributed')
     b.get_figure().savefig('statistics/output/graphs/' + name + '_DistributionOfRedistAmount.png')
     plt.clf()
-df[df['zsg_question_2'] == 1]['zsg_question_3'].plot.hist(bins=7).get_figure().savefig('a.png')
-df[df['nzsg_question_2'] == 1]['nzsg_question_3'].plot.hist(bins=7)
+
+
+
+
+
+
 #averages and correlations
-
-
-
-
 df.groupby('gender').mean()
 df.groupby('nationality').mean()
 df.groupby('age').mean()
@@ -152,9 +156,9 @@ df.groupby('political_party').sum()
 
 import seaborn as sns; sns.set(color_codes=True)
 
-ax = sns.regplot(y='nredist_avg', x='nbzsg_avg', data=df)
+ax = sns.regplot(y='nredist_avg', x='nbzsg_avg', data=df).get_figure().savefig('statistics/output/graphs/redist_on_bzsg_avg.png')
 
-ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df)
+ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df).get_figure().savefig('statistics/output/graphs/redist_on_bzsg_factors.png')
 
 ax2 = sns.regplot(y='zsg_question_3', x='nredist_avg', data=df)
 
