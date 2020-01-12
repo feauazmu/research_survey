@@ -13,7 +13,7 @@ from sklearn.datasets import load_iris
 
 df = pd.read_csv('cleaned_data.csv')
 vignette_names = ['undefined', 'zsg', 'non-zsg']
-
+vignettes = ['undefined', 'zsg', 'nzsg']
 #create useful columns
 df['counter'] = 1
 df['diff_zs_nzs'] = df['zsg_question_3'] - df['nzsg_question_3']
@@ -41,6 +41,7 @@ drop_cols.append('zero_redist1')
 df = df.drop(columns=drop_cols)
 df['bzsg_factor'].mean()
 df['nredist_avg'].min()
+#normalize factors
 df['bzsg_factor']= -df['bzsg_factor']/3.887762
 df['redist_factor'] = df['redist_factor']/1.871011
 #stata code
@@ -50,7 +51,7 @@ res = mod.fit()
 print(res.summary())
 
 
-mod = smf.ols(formula='redist_factor ~ age + C(gender) + C(education) + C(field_of_work) + C(nationality) + C(political_party) +bzsg_factor ', data=df)
+mod = smf.ols(formula='avg_redist_amount ~ age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ redist_factor + C(political_party) +bzsg_factor ', data=df)
 
 res = mod.fit()
 print(res.summary())
@@ -101,21 +102,22 @@ ax2.get_figure().savefig('statistics/output/graphs/Vigenttes_Mean_Redistributed_
 
 #Vignettes Updated redistributed amount
 ax3 = df[['undefined_question_4', 'zsg_question_4', 'nzsg_question_4']].mean().plot(kind='bar', color=['m', 'blue', 'red' ])
-ax3.set_title('Vignettes: Mean Redistributed Amount')
+ax3.
 ax3.set_ylabel('Fraction')
 ax3.set_xticklabels(vignette_names, rotation=0)
 #ax1.set(xlim=(-1, 3), ylim=(1, 4))
 ax3.figure
 ax3.get_figure().savefig('statistics/output/graphs/Vigenttes_Updated_Mean_Redistributed_Amount.png')
 
-type(ax)
-df.mean()
-df[['undefined_question_3', 'zsg_question_3', 'nzsg_question_3']].mean().plot(kind='bar', y='counter', color=['m', 'blue', 'red' ])
-df[['undefined_question_4', 'zsg_question_4', 'nzsg_question_4']].mean().plot(kind='bar', y='counter', color=['m', 'blue', 'red' ], label =['a', 'b', 'c'])
 
-redistributed amount distribution
-df[df['undefined_question_2'] == 1]['undefined_question_3'].plot.hist(bins=8)
-df[df['zsg_question_2'] == 1]['zsg_question_3'].plot.hist(bins=7)
+#
+for name in vignettes:
+    print(name)
+    b = df[df[name+'_question_2'] == 1][name+'_question_3'].plot.hist(bins=16)
+    b.set_xlabel('Fraction redistributed')
+    b.get_figure().savefig('statistics/output/graphs/' + name + '_DistributionOfRedistAmount.png')
+    plt.clf()
+df[df['zsg_question_2'] == 1]['zsg_question_3'].plot.hist(bins=7).get_figure().savefig('a.png')
 df[df['nzsg_question_2'] == 1]['nzsg_question_3'].plot.hist(bins=7)
 #averages and correlations
 
