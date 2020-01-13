@@ -21,39 +21,6 @@ ci_value = 1.96 #95% CI normal dist. z+ value
 #load data
 df = pd.read_csv('cleaned_data.csv')
 
-#create useful columns
-df['counter'] = 1
-df['diff_zs_nzs'] = df['zsg_question_3'] - df['nzsg_question_3']
-
-df['avg_redist_amount'] = df[['nzsg_question_3', 'zsg_question_3', 'undefined_question_3']].mean(axis=1)
-
-df['zero_redist'] = np.where(df['zsg_question_3'] == df['nzsg_question_3'], 1, 0)
-df['zero_redist1'] = np.where(df['undefined_question_3'] == df['zsg_question_3'], 1, 0)
-
-#df['zero_redist2'] = np.where(df['undefined_question_3'] == df['nzsg_question_3'], 1, 0)   #consistency check
-#df['zero_redist2'].sum()
-
-df['zero_redist'] = np.where(df['zero_redist'] + df['zero_redist1'] == 2, 1, 0)
-redist1 = df[df['zero_redist'] == 1 ]
-
-
-#drop less interesting columns
-drop_cols = []
-drop_cols = [c for c in df.columns if c.lower()[:4] in ['bzsg', 'redi']]
-drop_cols.remove('bzsg_factor')
-drop_cols.remove('redist_factor')
-
-drop_cols.append('Unnamed: 0')
-drop_cols.append('zero_redist1')
-df = df.drop(columns=drop_cols)
-
-#normalize factors
-df['bzsg_factor']= -df['bzsg_factor']/3.887762
-df['redist_factor'] = df['redist_factor']/1.871011
-#normalize question 1 fairness
-for vign in vignettes:
-    df[vign + '_question_1'] = (df[vign + '_question_1'] - 1)/6
-
 #stata code
 controls =  'age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ C(treatment) + C(political_party)'
 #redist_factor on bzsg_factor
@@ -69,7 +36,6 @@ textfile.write(summary_col([res1, res2],stars=True,float_format='%0.2f',model_na
 
 textfile.close()
 
-
 #redistributed amount each vignette
 for vign in vignettes:
     mod = smf.ols(formula=vign + '_question_3 ~ bzsg_factor', data=df)
@@ -83,17 +49,8 @@ for vign in vignettes:
     textfile = open('statistics/output/regressions/redist_amoun_on_factors_' + vign + '.txt', 'w')
     textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
                              'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
-    print(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
-                             'R2':lambda x: "{:.2f}".format(x.rsquared)}))
+
     textfile.close()
-
-
-
-mod = smf.ols(formula='redist_factor ~ ' + ' + bzsg_factor', data=df)
-res2 = mod.fit()
-
-
-
 
 #redistributed amount on
 mod = smf.ols(formula='nzsg_question_3 ~ '+ controls  +   ' + nzsg_question_1 + redist_factor + bzsg_factor ', data=df)
@@ -110,13 +67,22 @@ mod = smf.ols(formula='nzsg_question_3 ~ bzsg_factor ', data=df)
 res = mod.fit()
 print(res.summary())
 
-logit = sm.Logit(df['undefined_question_2'], sm.add_constant(df[[ 'bzsg_factor']]))
+
+#logit prob of redistribute
+logit = sm.Logit(df['undefined_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor']]))
 res1 = logit.fit()
 print(res1.summary())
-sm.add_constant(df[[ 'bzsg_factor']])
+
+logit = sm.Logit(df['zsg_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor']]))
+res2 = logit.fit()
+print(res2.summary())
+
+logit = sm.Logit(df['nzsg_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor']]))
+res3 = logit.fit()
+print(res3.summary())
+
 
 #redistributed amount means
-
 #Vignette: Fairness
 mean = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].mean()
 std = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].std()
@@ -130,9 +96,6 @@ mra.set_ylabel('How unfair')
 mra.set_xticklabels(vignette_names, rotation=0)
 
 mra.get_figure().savefig('statistics/output/graphs/Vignettes_Fairness.png', dpi=resolution)
-
-
-
 
 #Vignttes want to redistribute
 mean = df[['undefined_question_2', 'zsg_question_2', 'nzsg_question_2']].mean()

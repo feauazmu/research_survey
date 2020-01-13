@@ -13,6 +13,8 @@ from factor_analyzer.factor_analyzer import calculate_kmo
 
 df = pd.read_csv('statistics/inequality_research_survey.csv')
 
+vignettes = ['undefined', 'zsg', 'nzsg']
+
 #select uninteresting columns to drop them
 drop_cols = [c for c in df.columns if c.lower()[:4] in ['part', 'sess', '1.gr', '1.su', '2.pa', '2.se']]
 noninfo_cols = ['index', 'inequality_research_survey.1.player.id_in_group', 'inequality_research_survey.1.player.payoff',
@@ -58,7 +60,7 @@ df_bzsg = df.iloc[:,7:15]
 
 #df_bzsg = df_bzsg[(pd.notnull(df_bzsg['bzsg_1']))]
 df_nbzsg = (df_bzsg-1)/6
-df_nbzsg
+
 df['nbzsg_avg'] = df_nbzsg.mean(axis=1, skipna = True)
 
 df_redist = df.iloc[:,15:19]
@@ -169,5 +171,38 @@ for index, row in df.iterrows():
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 50
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 50
 
+#create useful columns
+df['counter'] = 1
+df['diff_zs_nzs'] = df['zsg_question_3'] - df['nzsg_question_3']
+
+df['avg_redist_amount'] = df[['nzsg_question_3', 'zsg_question_3', 'undefined_question_3']].mean(axis=1)
+
+df['zero_redist'] = np.where(df['zsg_question_3'] == df['nzsg_question_3'], 1, 0)
+df['zero_redist1'] = np.where(df['undefined_question_3'] == df['zsg_question_3'], 1, 0)
+
+#df['zero_redist2'] = np.where(df['undefined_question_3'] == df['nzsg_question_3'], 1, 0)   #consistency check
+#df['zero_redist2'].sum()
+
+df['zero_redist'] = np.where(df['zero_redist'] + df['zero_redist1'] == 2, 1, 0)
+redist1 = df[df['zero_redist'] == 1 ]
+
+
+#drop less interesting columns
+drop_cols = []
+drop_cols = [c for c in df.columns if c.lower()[:4] in ['bzsg', 'redi']]
+drop_cols.remove('bzsg_factor')
+drop_cols.remove('redist_factor')
+
+#drop_cols.append('Unnamed: 0')
+drop_cols.append('zero_redist1')
+df = df.drop(columns=drop_cols)
+
+#normalize factors
+df['bzsg_factor']= -df['bzsg_factor']/3.887762
+df['redist_factor'] = df['redist_factor']/1.871011
+
+#normalize question 1 fairness
+for vign in vignettes:
+    df[vign + '_question_1'] = (df[vign + '_question_1'] - 1)/6
 
 df.to_csv(index=True, path_or_buf='cleaned_data.csv')
