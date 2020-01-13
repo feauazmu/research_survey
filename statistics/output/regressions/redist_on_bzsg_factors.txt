@@ -4,8 +4,8 @@
 \textbf{Dep. Variable:}    &  redist\_factor  & \textbf{  R-squared:         } &     0.055   \\
 \textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.051   \\
 \textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     14.18   \\
-\textbf{Date:}             & Sun, 12 Jan 2020 & \textbf{  Prob (F-statistic):} &  0.000209   \\
-\textbf{Time:}             &     17:51:20     & \textbf{  Log-Likelihood:    } &    26.558   \\
+\textbf{Date:}             & Mon, 13 Jan 2020 & \textbf{  Prob (F-statistic):} &  0.000209   \\
+\textbf{Time:}             &     12:19:27     & \textbf{  Log-Likelihood:    } &    26.558   \\
 \textbf{No. Observations:} &         244      & \textbf{  AIC:               } &    -49.12   \\
 \textbf{Df Residuals:}     &         242      & \textbf{  BIC:               } &    -42.12   \\
 \textbf{Df Model:}         &           1      & \textbf{                     } &             \\

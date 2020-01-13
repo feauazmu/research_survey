@@ -1,0 +1,83 @@
+\begin{table}
+\caption{}
+\begin{center}
+\begin{tabular}{lcc}
+\hline
+                             & redist\_factor I & redist\_factor II  \\
+\midrule
+C(education)[T.2.0]          & -0.0238          &                    \\
+                             & (0.0486)         &                    \\
+C(education)[T.3.0]          & 0.0113           &                    \\
+                             & (0.0362)         &                    \\
+C(education)[T.4.0]          & 0.0313           &                    \\
+                             & (0.0648)         &                    \\
+C(education)[T.5.0]          & -0.0401          &                    \\
+                             & (0.0925)         &                    \\
+C(education)[T.6.0]          & 0.1311           &                    \\
+                             & (0.2223)         &                    \\
+C(field\_of\_work)[T.10.0]   & -0.3212          &                    \\
+                             & (0.1610)         &                    \\
+C(field\_of\_work)[T.11.0]   & -0.2987          &                    \\
+                             & (0.1623)         &                    \\
+C(field\_of\_work)[T.12.0]   & -0.3334          &                    \\
+                             & (0.1636)         &                    \\
+C(field\_of\_work)[T.13.0]   & -0.3237          &                    \\
+                             & (0.1596)         &                    \\
+C(field\_of\_work)[T.14.0]   & -0.3764          &                    \\
+                             & (0.1761)         &                    \\
+C(field\_of\_work)[T.15.0]   & -0.4108          &                    \\
+                             & (0.1695)         &                    \\
+C(field\_of\_work)[T.2.0]    & -0.2090          &                    \\
+                             & (0.1847)         &                    \\
+C(field\_of\_work)[T.4.0]    & -0.1977          &                    \\
+                             & (0.1711)         &                    \\
+C(field\_of\_work)[T.5.0]    & -0.3314          &                    \\
+                             & (0.1702)         &                    \\
+C(field\_of\_work)[T.7.0]    & -0.5029          &                    \\
+                             & (0.1674)         &                    \\
+C(field\_of\_work)[T.8.0]    & -0.3154          &                    \\
+                             & (0.1623)         &                    \\
+C(field\_of\_work)[T.9.0]    & -0.2734          &                    \\
+                             & (0.1675)         &                    \\
+C(gender)[T.2.0]             & 0.0334           &                    \\
+                             & (0.0283)         &                    \\
+C(gender)[T.3.0]             & 0.0188           &                    \\
+                             & (0.1239)         &                    \\
+C(nationality)[T.2.0]        & -0.1069          &                    \\
+                             & (0.0742)         &                    \\
+C(nationality)[T.3.0]        & -0.0958          &                    \\
+                             & (0.0540)         &                    \\
+C(political\_party)[T.2.0]   & 0.0531           &                    \\
+                             & (0.0623)         &                    \\
+C(political\_party)[T.3.0]   & -0.0984          &                    \\
+                             & (0.0990)         &                    \\
+C(political\_party)[T.4.0]   & -0.0578          &                    \\
+                             & (0.0605)         &                    \\
+C(political\_party)[T.5.0]   & 0.1902           &                    \\
+                             & (0.0619)         &                    \\
+C(political\_party)[T.6.0]   & 0.0782           &                    \\
+                             & (0.0451)         &                    \\
+C(political\_party)[T.7.0]   & 0.0851           &                    \\
+                             & (0.0602)         &                    \\
+C(political\_party)[T.8.0]   & 0.0675           &                    \\
+                             & (0.0599)         &                    \\
+C(treatment)[T.treatment\_2] & 0.0496           &                    \\
+                             & (0.0473)         &                    \\
+C(treatment)[T.treatment\_3] & 0.0804           &                    \\
+                             & (0.0477)         &                    \\
+C(treatment)[T.treatment\_4] & 0.1019           &                    \\
+                             & (0.0479)         &                    \\
+C(treatment)[T.treatment\_5] & 0.1031           &                    \\
+                             & (0.0476)         &                    \\
+C(treatment)[T.treatment\_6] & 0.0675           &                    \\
+                             & (0.0496)         &                    \\
+Intercept                    & 0.8222           & 0.5716             \\
+                             & (0.1746)         & (0.0334)           \\
+age                          & -0.0010          &                    \\
+                             & (0.0014)         &                    \\
+bzsg\_factor                 & 0.2359           & 0.2899             \\
+                             & (0.0770)         & (0.0770)           \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
