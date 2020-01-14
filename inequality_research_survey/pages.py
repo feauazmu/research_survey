@@ -108,7 +108,7 @@ class Vignette_1(Page):
         ]
 
     def vars_for_template(self):
-        stream = open("fixtures/questions.yaml", 'r')
+        stream = open("fixtures/questions_english.yaml", 'r')
         questions = yaml.safe_load(stream)
         if self.participant.vars['treatment'] == "treatment_1" or self.participant.vars['treatment'] == "treatment_2":
             statement_a = questions.get("vignette").get("a").get("statement")
@@ -164,7 +164,7 @@ class Vignette_2(Page):
         ]
 
     def vars_for_template(self):
-        stream = open("fixtures/questions.yaml", 'r')
+        stream = open("fixtures/questions_english.yaml", 'r')
         questions = yaml.safe_load(stream)
         if self.participant.vars['treatment'] == "treatment_5" or self.participant.vars['treatment'] == "treatment_6":
             statement_a = questions.get("vignette").get("a").get("statement")
@@ -219,7 +219,7 @@ class Vignette_3(Page):
         ]
 
     def vars_for_template(self):
-        stream = open("fixtures/questions.yaml", 'r')
+        stream = open("fixtures/questions_english.yaml", 'r')
         questions = yaml.safe_load(stream)
         if self.participant.vars['treatment'] == "treatment_3" or self.participant.vars['treatment'] == "treatment_4":
             statement_a = questions.get("vignette").get("a").get("statement")

@@ -17,7 +17,7 @@ doc = """
 Your app description
 """
 
-stream = open("fixtures/questions.yaml", 'r')
+stream = open("fixtures/questions_english.yaml", 'r')
 questions = yaml.safe_load(stream)
 
 def seven_options_likert_scale(question):
@@ -70,27 +70,27 @@ class Player(BasePlayer):
     gender = models.IntegerField(
         label = "Geschlecht:",
         choices = [
-            [1, 'männlich'],
-            [2, 'weiblich'],
-            [3, 'divers'],
+            [1, 'male'],
+            [2, 'female'],
+            [3, 'other'],
         ],
         widget = widgets.RadioSelect,
         blank = False,
     )
 
     age = models.IntegerField(
-        label = "Alter:",
+        label = "Age:",
         min = 18,
         max = 130,
         blank = False,
     )
 
     nationality = models.IntegerField(
-        label = "Nationalität:",
+        label = "Nationality:",
         choices = [
-            [1, 'Deutsch'],
-            [2, 'Eu-Bürger'],
-            [3, 'Nicht-EU-Bürger'],
+            [1, 'German'],
+            [2, 'EU Citizen'],
+            [3, 'Not EU Citizen'],
             # [1, 'Deutschland'],
             # [2, 'anderes EU-Land'],
             # [3, 'nicht EU-Land'],
@@ -179,21 +179,21 @@ class Player(BasePlayer):
     # Vignette questions.
     undefined_question_1 = models.IntegerField(
         choices = [
-            [1, "sehr gerecht"],
-            [2, "gerecht"],
-            [3, "eher gerecht"],
-            [4, "weder gerecht noch ungerecht"],
-            [5, "eher ungerecht"],
-            [6, "ungerecht"],
-            [7, "sehr ungerecht"],
+            [1, "very fair"],
+            [2, "fair"],
+            [3, "somewhat fair"],
+            [4, "not fair or unfair"],
+            [5, "somewhat unfair"],
+            [6, "unfair"],
+            [7, "very unfair"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
     )
     undefined_question_2 = models.IntegerField(
         choices = [
-            [1, 'ja'],
-            [0, 'nein'],
+            [1, 'yes'],
+            [0, 'no'],
         ],
             widget = widgets.RadioSelect,
             blank = False,
@@ -208,21 +208,21 @@ class Player(BasePlayer):
 
     zsg_question_1 = models.IntegerField(
         choices = [
-             [1, "sehr gerecht"],
-            [2, "gerecht"],
-            [3, "eher gerecht"],
-            [4, "weder gerecht noch ungerecht"],
-            [5, "eher ungerecht"],
-            [6, "ungerecht"],
-            [7, "sehr ungerecht"],
+            [1, "very fair"],
+            [2, "fair"],
+            [3, "somewhat fair"],
+            [4, "not fair or unfair"],
+            [5, "somewhat unfair"],
+            [6, "unfair"],
+            [7, "very unfair"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
     )
     zsg_question_2 = models.IntegerField(
         choices = [
-            [1, 'ja'],
-            [0, 'nein'],
+            [1, 'yes'],
+            [0, 'no'],
         ],
             widget = widgets.RadioSelect,
             blank = False,
@@ -237,21 +237,21 @@ class Player(BasePlayer):
 
     nzsg_question_1 = models.IntegerField(
         choices = [
-              [1, "sehr gerecht"],
-            [2, "gerecht"],
-            [3, "eher gerecht"],
-            [4, "weder gerecht noch ungerecht"],
-            [5, "eher ungerecht"],
-            [6, "ungerecht"],
-            [7, "sehr ungerecht"],
+            [1, "very fair"],
+            [2, "fair"],
+            [3, "somewhat fair"],
+            [4, "not fair or unfair"],
+            [5, "somewhat unfair"],
+            [6, "unfair"],
+            [7, "very unfair"],
         ],
             widget = widgets.RadioSelect,
             blank = False,
     )
     nzsg_question_2 = models.IntegerField(
         choices = [
-            [1, 'ja'],
-            [0, 'nein'],
+            [1, 'yes'],
+            [0, 'no'],
         ],
             widget = widgets.RadioSelect,
             blank = False,
