@@ -49,9 +49,10 @@ for vign in vignettes:
     textfile = open('statistics/output/regressions/redist_amoun_on_factors_' + vign + '.txt', 'w')
     textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
                              'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
-
+    print(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                             'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
     textfile.close()
-
+print('a')
 #redistributed amount on
 mod = smf.ols(formula='nzsg_question_3 ~ '+ controls  +   ' + nzsg_question_1 + redist_factor + bzsg_factor ', data=df)
 
@@ -79,7 +80,12 @@ print(res2.summary())
 
 logit = sm.Logit(df['nzsg_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor']]))
 res3 = logit.fit()
-print(res3.summary())
+print(res3.summary().as_latex())
+
+textfile = open('statistics/output/regressions/logit_decide_to_redist.txt', 'w')
+textfile.write(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),  'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
 
 
 #redistributed amount means
@@ -87,7 +93,7 @@ print(res3.summary())
 mean = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].mean()
 std = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].std()
 error = std*ci_value/np.sqrt(len(df))
-
+mean
 fig, mra = plt.subplots()
 mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.75, ecolor='black', capsize=10)
 
@@ -183,9 +189,9 @@ df.groupby('political_party').sum()
 
 import seaborn as sns; sns.set(color_codes=True)
 
-ax = sns.regplot(y='nredist_avg', x='nbzsg_avg', data=df).get_figure().savefig('statistics/output/graphs/redist_on_bzsg_avg.png', dpi=resolution)
-
-ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df).get_figure().savefig('statistics/output/graphs/redist_on_bzsg_factors.png', dpi=resolution)
+ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df)
+ax1.set(xlabel='Belief in Zero-Sum', ylabel='Redistribution Preferences')
+ax1.get_figure().savefig('statistics/output/graphs/redist_on_bzsg_factors.png', dpi=resolution)
 
 ax2 = sns.regplot(y='zsg_question_3', x='nredist_avg', data=df)
 
