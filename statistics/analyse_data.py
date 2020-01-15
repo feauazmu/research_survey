@@ -52,6 +52,50 @@ for vign in vignettes:
 
     textfile.close()
 
+# differences between amounts in zsg and nzsg
+
+df['difference'] = df['nzsg_question_3'] - df['zsg_question_3']
+mod = smf.ols(formula='difference ~ bzsg_factor', data=df)
+res1 = mod.fit()
+mod = smf.ols(formula='difference ~ bzsg_factor +' + controls, data=df)
+res2 = mod.fit()
+mod = smf.ols(formula='difference ~ redist_factor', data=df)
+res3 = mod.fit()
+mod = smf.ols(formula='difference ~ redist_factor + ' + controls, data=df)
+res4 = mod.fit()
+textfile = open('statistics/output/regressions/differences_in_zsg_nzsg.txt', 'w')
+textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                         'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
+# undefined situation redistribution amount vs belief in zero-sum game.
+
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor', data=df)
+res1 = mod.fit()
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor + undefined_question_1', data=df)
+res2 = mod.fit()
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor + undefined_question_1 + ' + controls, data=df)
+res3 = mod.fit()
+textfile = open('statistics/output/regressions/redist_amount_undefined_bzsg.txt', 'w')
+textfile.write(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                         'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+
+textfile.close()
+
+# undefined situation redistribution amount vs redistribution preferences.
+
+mod = smf.ols(formula='undefined_question_3 ~ redist_factor', data=df)
+res1 = mod.fit()
+mod = smf.ols(formula='undefined_question_3 ~ redist_factor + undefined_question_1', data=df)
+res2 = mod.fit()
+mod = smf.ols(formula='undefined_question_3 ~ redist_factor + undefined_question_1 + ' + controls, data=df)
+res3 = mod.fit()
+textfile = open('statistics/output/regressions/redist_amount_undefined_redist.txt', 'w')
+textfile.write(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                         'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+
+textfile.close()
+
 #redistributed amount on
 mod = smf.ols(formula='nzsg_question_3 ~ '+ controls  +   ' + nzsg_question_1 + redist_factor + bzsg_factor ', data=df)
 
