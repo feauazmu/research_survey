@@ -76,8 +76,10 @@ mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor + undefined_question_1
 res2 = mod.fit()
 mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor + undefined_question_1 + ' + controls, data=df)
 res3 = mod.fit()
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor + undefined_question_1 + redist_factor +' + controls, data=df)
+res4 = mod.fit()
 textfile = open('statistics/output/regressions/redist_amount_undefined_bzsg.txt', 'w')
-textfile.write(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
                          'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 
 textfile.close()
