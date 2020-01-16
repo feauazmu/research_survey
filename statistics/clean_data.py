@@ -31,7 +31,7 @@ drop_cols.extend(player2_cols)
 
 
 
-#bring answers in "2/1.player" to the same column. bszg and redistribution questions
+#bring answers in "2/1.player" to the same column. bzsg and redistribution questions
 for i in range(1,9):
     column_bzsg = 'inequality_research_survey.1.player.bzsg_{}'.format(i)
     column_bzsg2 = 'inequality_research_survey.2.player.bzsg_{}'.format(i)
@@ -80,7 +80,7 @@ print(chi_square_value, p_value)
 
 #Kaiser-Meyer-Olkin Test   (proportion of variance among all the observed variable) //value [0,1] > 0.6 => OK
 kmo_all,kmo_model=calculate_kmo(df_nbzsg)
-print('bszg:', kmo_model)
+print('bzsg:', kmo_model)
 kmo_all,kmo_model=calculate_kmo(df_nredist)
 print('redist:', kmo_model)
 
@@ -137,39 +137,67 @@ a.sum()
 df['redist_factor'] = -np.dot(df_nredist, pd.DataFrame(fa.loadings_))
 
 #norm payments by treatment
+df['undefined_effort_diff'] = 0.0
+df['zsg_effort_diff'] = 0.0
+df['nzsg_effort_diff'] = 0.0
+df['undefined_effort_diff_d'] = 0
+df['zsg_effort_diff_d'] = 0
+df['nzsg_effort_diff_d'] = 0
+
+df['undefined_effort_diff'].max()
+df['undefined_question_3'].max()
+
 for index, row in df.iterrows():
     if row['treatment'] in ['treatment_1', 'treatment_2']:
 
         df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 800
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 800
+        df.at[index, 'undefined_effort_diff'] = 0.333
+        df.at[index, 'undefined_effort_diff_d'] = 0
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 50
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 50
+        df.at[index, 'zsg_effort_diff'] = 0.099
+        df.at[index, 'zsg_effort_diff_d'] = 0
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 20
+        df.at[index, 'nzsg_effort_diff'] = 0.385
+        df.at[index, 'nzsg_effort_diff_d'] = 1
 
     if row['treatment'] in ['treatment_3', 'treatment_4']:
 
         df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 50
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 50
+        df.at[index, 'undefined_effort_diff'] = .099
+        df.at[index, 'undefined_effort_diff_d'] = 0
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 20
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 20
+        df.at[index, 'zsg_effort_diff'] = .385
+        df.at[index, 'zsg_effort_diff_d'] = 1
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 800
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 800
+        df.at[index, 'nzsg_effort_diff'] = .333
+        df.at[index, 'nzsg_effort_diff_d'] = 0
 
     if row['treatment'] in ['treatment_5', 'treatment_6']:
 
         df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 20
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 20
+        df.at[index, 'undefined_effort_diff'] = 0.385
+        df.at[index, 'undefined_effort_diff_d'] = 1
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 800
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 800
+        df.at[index, 'zsg_effort_diff'] = .333
+        df.at[index, 'zsg_effort_diff_d'] = 0
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 50
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 50
+        df.at[index, 'nzsg_effort_diff'] = .099
+        df.at[index, 'nzsg_effort_diff_d'] = 0
 
 #create useful columns
 df['counter'] = 1
