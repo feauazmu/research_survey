@@ -147,6 +147,8 @@ df['nzsg_effort_diff_d'] = 0
 df['undefined_effort_diff'].max()
 df['undefined_question_3'].max()
 
+df[df['nzsg_question_3'] < 5]['nzsg_question_3'].mean()
+
 for index, row in df.iterrows():
     if row['treatment'] in ['treatment_1', 'treatment_2']:
 
@@ -161,8 +163,12 @@ for index, row in df.iterrows():
         df.at[index, 'zsg_effort_diff_d'] = 0
 
         if df.at[index, 'nzsg_question_2'] == 1:
-            df.at[index, 'nzsg_question_3'] = 1 - row['nzsg_question_3'] / 20
-            df.at[index, 'nzsg_question_4'] = 1 - row['nzsg_question_4'] / 20
+            if df.at[index, 'nzsg_question_3'] < .26*20*0:
+                df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
+                df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 20
+            else:
+                df.at[index, 'nzsg_question_3'] = 1 - row['nzsg_question_3'] / 20
+                df.at[index, 'nzsg_question_4'] = 1 - row['nzsg_question_4'] / 20
         df.at[index, 'nzsg_effort_diff'] = 0.385
         df.at[index, 'nzsg_effort_diff_d'] = 1
 
@@ -174,9 +180,12 @@ for index, row in df.iterrows():
         df.at[index, 'undefined_effort_diff_d'] = 0
 
         if df.at[index, 'zsg_question_2'] == 1:
-            df.at[index, 'zsg_question_3'] = 1 - row['zsg_question_3'] / 20
-            df.at[index, 'zsg_question_4'] = 1 - row['zsg_question_4'] / 20
-
+            if df.at[index, 'zsg_question_3'] < .44*20*0:
+                df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 20
+                df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 20
+            else:
+                df.at[index, 'zsg_question_3'] = 1 - row['zsg_question_3'] / 20
+                df.at[index, 'zsg_question_4'] = 1 - row['zsg_question_4'] / 20
         df.at[index, 'zsg_effort_diff'] = .385
         df.at[index, 'zsg_effort_diff_d'] = 1
 
@@ -188,8 +197,12 @@ for index, row in df.iterrows():
     if row['treatment'] in ['treatment_5', 'treatment_6']:
 
         if df.at[index, 'undefined_question_2'] == 1:
-            df.at[index, 'undefined_question_3'] = 1 - row['undefined_question_3'] / 20
-            df.at[index, 'undefined_question_4'] = 1 - row['undefined_question_4'] / 20
+            if df.at[index, 'undefined_question_3'] < .26*20*0:
+                df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 20
+                df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 20
+            else:
+                df.at[index, 'undefined_question_3'] = 1 - row['undefined_question_3'] / 20
+                df.at[index, 'undefined_question_4'] = 1 - row['undefined_question_4'] / 20
         df.at[index, 'undefined_effort_diff'] = 0.385
         df.at[index, 'undefined_effort_diff_d'] = 1
 
@@ -239,26 +252,86 @@ for vign in vignettes:
 
 df.to_csv(index=True, path_or_buf='cleaned_data.csv')
 
+for vign in vignettes:
+    print(vign)
+    corrected_data = df[df[vign + '_effort_diff_d'] == 1]
+    right_data = df[df[vign + '_effort_diff_d'] == 0]
+
+    right_data[vign + '_redist_diff'] = right_data[vign + '_question_3']-right_data[vign + '_question_4']
+    print(right_data[right_data[vign + '_redist_diff'] < 0][[vign + '_question_3', vign + '_question_4', vign + '_redist_diff']])
+
+    corrected_data[vign + '_redist_diff'] = corrected_data[vign + '_question_3']-corrected_data[vign + '_question_4']
+    print(corrected_data[corrected_data[vign + '_redist_diff'] < 0][[vign + '_question_3', vign + '_question_4', vign + '_redist_diff']])
+
+
+    diff_corrected = corrected_data[vign + '_question_3'] - corrected_data[vign + '_question_4']
+    diff_right = right_data[vign + '_question_3'] - right_data[vign + '_question_4']
+    (diff_corrected != 0).sum()
+    (diff_right != 0).sum()
+
+    print('right data dif > 0: ' + str((diff_right >0).sum()
+    ))
+    print('right data dif < 0: ' + str((diff_right <0).sum()
+    ))
+    print('corrected data dif > 0: ' + str((diff_corrected >0).sum()))
+    print('corrected data dif < 0: ' + str((diff_corrected <0).sum()))
+
+    print('right data mean diff redist. amount: '+ str(diff_right.mean()))
+    print('corrected data mean diff redist. amount: '+ str(diff_corrected.mean()))
+    print('diff in diff: ' + str(diff_right.mean() - diff_corrected.mean()))
+
+print()
 #test corrected data
 from scipy.stats import ks_2samp
+plt.clf()
 for vign in vignettes:
     corrected_data = df[df[vign + '_effort_diff_d'] == 1]
     right_data = df[df[vign + '_effort_diff_d'] == 0]
-    print(vign)
-    print('corrected N: ' + str(len(corrected_data)))
-    print('right N ' + str(len(right_data)))
+
     corrected_data = corrected_data[corrected_data[vign + '_question_2'] == 1][vign + '_question_3']
     right_data = right_data[right_data[vign + '_question_2'] == 1][vign + '_question_3']
     A = right_data.plot.hist(bins=16, color='blue', alpha=0.50, weights=np.zeros_like(right_data) + 1. / right_data.size)
     A = corrected_data.plot.hist(bins=16, color='red', alpha=0.50, weights=np.zeros_like(corrected_data) + 1. / corrected_data.size)
     A.get_figure().savefig('statistics/output/correction/' + vign + '_correctedvsright_distribution.png')
 
+    print(vign)
+    print('corrected N: ' + str(len(corrected_data)))
+    print('right N ' + str(len(right_data)))
     print(ks_2samp(corrected_data, right_data))
     plt.clf()
 
-    corrected_data = df[df['zsg_effort_diff_d'] == 1]
-    right_data = df[df['zsg_effort_diff_d'] == 0]
-    print(len(corrected_data))
-    print(len(right_data))
-    corrected_data = corrected_data[corrected_data['nzsg_question_2'] == 1][vign + '_question_3']
-    right_data = right_data[right_data['nzsg_question_2'] == 1][vign + '_question_3']
+dict = {'undefined': [], 'zsg': [], 'nzsg': []}
+dict['undefined']
+dict
+
+#benchmark to test 2 random samples of right data
+for i in range(100):
+    for vign in vignettes:
+        corrected_data = df[df[vign + '_effort_diff_d'] == 1]
+        right_data = df[df[vign + '_effort_diff_d'] == 0]
+
+        corrected_data = corrected_data[corrected_data[vign + '_question_2'] == 1][vign + '_question_3']
+        right_data = right_data[right_data[vign + '_question_2'] == 1][vign + '_question_3']
+        # A = right_data.plot.hist(bins=32, color='blue', alpha=0.50, weights=np.zeros_like(right_data) + 1. / right_data.size)
+        # A = corrected_data.plot.hist(bins=32, color='red', alpha=0.50, weights=np.zeros_like(corrected_data) + 1. / corrected_data.size)
+        # A.get_figure().savefig('statistics/output/correction/' + vign + '_correctedvsright_distribution.png')
+        msk = np.random.rand(len(right_data)) < 0.5
+        part1 = right_data[msk]
+        part2 = right_data[~msk]
+        print(vign)
+        print('corrected N: ' + str(len(corrected_data)))
+        print('right N ' + str(len(right_data)))
+        dict[vign].append(ks_2samp(part1, part2).pvalue)
+        print(ks_2samp(part1, part2))
+
+dict
+
+pd.DataFrame.from_dict(dict).mean()
+
+#find max redist amount for right data
+for vign in vignettes:
+    corrected_data = df[df[vign + '_effort_diff_d'] == 1]
+    right_data = df[df[vign + '_effort_diff_d'] == 0]
+    print(vign + str(right_data[vign + '_question_3'].max()))
+    # outliers = corrected_data[corrected_data[vign + 'zsg_question_3'] < right_data[vign + '_question_3'].max()]
+    # outliers[] = outliers

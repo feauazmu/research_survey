@@ -1,0 +1,80 @@
+undefined
+right data
+     undefined_question_3  undefined_question_4  undefined_redist_diff
+24                0.49375               0.52375               -0.03000
+54                0.24125               0.76250               -0.52125
+75                0.62000               0.96000               -0.34000
+96                0.75000               0.93250               -0.18250
+134               0.48000               0.52000               -0.04000
+187               0.48750               0.74875               -0.26125
+228               0.30875               0.31750               -0.00875
+231               0.06000               0.36000               -0.30000
+255               0.00000               0.40000               -0.40000
+
+corrected data
+     undefined_question_3  undefined_question_4  undefined_redist_diff
+22                    0.4                   1.0                   -0.6
+65                    0.6                   1.0                   -0.4
+244                   0.5                   0.8                   -0.3
+250                   0.4                   0.6                   -0.2
+right data dif > 0: 43
+right data dif > 0: 9
+corrected data dif > 0: 17
+corrected data dif < 0: 4
+right data mean diff redist. amount: 0.023969696969696974
+corrected data mean diff redist. amount: 0.026582278481012654
+diff in diff: -0.00261258151131568
+
+
+zsg
+
+right data
+     zsg_question_3  zsg_question_4  zsg_redist_diff
+71          0.54000         0.66625         -0.12625
+89          0.49375         0.50125         -0.00750
+91          0.36000         0.50000         -0.14000
+95          0.48250         0.51500         -0.03250
+96          0.56000         0.58000         -0.02000
+100         0.22125         0.57125         -0.35000
+121         0.40000         0.56000         -0.16000
+187         0.54000         0.60000         -0.06000
+193         0.42000         0.56000         -0.14000
+228         0.22000         0.30000         -0.08000
+233         0.50125         0.50375         -0.00250
+
+corrected data
+     zsg_question_3  zsg_question_4  zsg_redist_diff
+81             0.20            0.60            -0.40
+218            0.15            0.25            -0.10
+254            0.30            0.35            -0.05
+right data dif > 0: 30
+right data dif > 0: 11
+corrected data dif > 0: 3
+corrected data dif < 0: 3
+right data mean diff redist. amount: 0.01765432098765432
+corrected data mean diff redist. amount: -0.0006097560975609744
+diff in diff: 0.018264077085215297
+
+nzsg
+right data
+     nzsg_question_3  nzsg_question_4  nzsg_redist_diff
+94           0.50000           0.5800          -0.08000
+134          0.61625           0.6275          -0.01125
+161          0.00000           0.9000          -0.90000
+233          0.50000           0.6000          -0.10000
+250          0.46000           0.5400          -0.08000
+269          0.74000           0.9000          -0.16000
+
+corrected data
+     nzsg_question_3  nzsg_question_4  nzsg_redist_diff
+162             0.50             0.75             -0.25
+193             0.15             0.50             -0.35
+216             0.50             0.75             -0.25
+240             0.25             0.75             -0.50
+right data dif > 0: 28
+right data dif > 0: 6
+corrected data dif > 0: 6
+corrected data dif < 0: 4
+right data mean diff redist. amount: 0.017197204968944103
+corrected data mean diff redist. amount: -0.003614457831325298
+diff in diff: 0.0208116628002694
