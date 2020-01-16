@@ -146,24 +146,24 @@ for index, row in df.iterrows():
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 50
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 50
 
-        df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
-        df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 20
+        df.at[index, 'nzsg_question_3'] = pd.np.nan
+        df.at[index, 'nzsg_question_4'] = pd.np.nan
 
     if row['treatment'] in ['treatment_3', 'treatment_4']:
 
         df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 50
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 50
 
-        df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 20
-        df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 20
+        df.at[index, 'zsg_question_3'] = pd.np.nan
+        df.at[index, 'zsg_question_4'] = pd.np.nan
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 800
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 800
 
     if row['treatment'] in ['treatment_5', 'treatment_6']:
 
-        df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 20
-        df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 20
+        df.at[index, 'undefined_question_3'] = pd.np.nan
+        df.at[index, 'undefined_question_4'] = pd.np.nan
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 800
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 800
