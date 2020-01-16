@@ -20,8 +20,8 @@ ci_value = 1.96 #95% CI normal dist. z+ value
 
 #load data
 df = pd.read_csv('cleaned_data.csv')
-
-df['zsg_effort_diff']
+df.groupby('treatment').mean()[['undefined_question_3', 'zsg_question_3', 'nzsg_question_3']]
+df[df['treatment']== 'treatment_6']['undefined_question_3']
 #stata code
 controls =  'age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ C(treatment) + C(political_party)'
 #redist_factor on bzsg_factor
@@ -109,9 +109,9 @@ textfile.close()
 #redistributed amount means
 #Vignette: Fairness
 mean = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].mean()
+mean
 std = df[['undefined_question_1', 'zsg_question_1', 'nzsg_question_1']].std()
 error = std*ci_value/np.sqrt(len(df))
-mean
 fig, mra = plt.subplots()
 mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.75, ecolor='black', capsize=10)
 
@@ -170,7 +170,7 @@ for name, color in zip(vignettes, colors):
     mean = df[df[name+'_question_2'] == 1][name+'_question_3'].mean()
     b = df[df[name+'_question_2'] == 1][name+'_question_3'].plot.hist(bins=16, color=color, alpha=0.75)
     b.axvline(mean, color=color, linestyle='dashed', linewidth=1)
-    b.set_title("Redistrubted Amount '" + name + "'")
+    b.set_title("Redistributed Amount '" + name + "'")
     b.set_xlim(right=0.85)
     b.set_ylim(top=35)
     b.set_xlabel('Fraction Redistributed')
@@ -190,7 +190,7 @@ for name, color in zip(vignettes, colors):
     b = df[df[name+'_question_2'] == 1][name+'_question_4'].plot.hist(bins=16, color=color, alpha=0.75)
     b.axvline(mean, color=color, linestyle='dashed', linewidth=1)
     b.axvline(mean1, color=color, linestyle='dotted', linewidth=1)
-    b.set_title("Redistrubted Amount '" + name + "'")
+    b.set_title("Redistibuted Amount '" + name + "'")
     b.set_xlim(right=0.85)
     b.set_ylim(top=35)
     b.set_xlabel('Fraction Redistributed')
@@ -201,8 +201,8 @@ for name, color in zip(vignettes, colors):
 
 #averages and correlations
 fig, test = plt.subplots()
-zsg_believers = df[df['bzsg_factor'] > df['bzsg_factor'].quantile(.90)] #50% people believers in zsg
-zsg_non_believers = df[df['bzsg_factor'] < df['bzsg_factor'].quantile(.10)] #50% people believers in zsg
+zsg_believers = df[df['bzsg_factor'] > df['bzsg_factor'].quantile(.75)] #50% people believers in zsg
+zsg_non_believers = df[df['bzsg_factor'] < df['bzsg_factor'].quantile(.25)] #50% people believers in zsg
 zsg_believers
 for i in [1]:
     mean = zsg_believers['undefined_question_3'].mean()
@@ -214,19 +214,26 @@ for i in [1]:
     test.get_figure().savefig('statistics/output/graphs/' + 'believersvsnon.png', dpi=resolution)
     plt.clf()
 
+#redist_diff graphs on effort_diff
 
+for vign in vignettes:
+    df[vign + '_redist_diff'] = (df[vign + '_question_4'] - df[vign + '_question_3'])
+a = df[['undefined_question_3', 'undefined_question_4', 'undefined_redist_diff']]
+a[a['undefined_redist_diff'] < 0].count()
+df = df.sort_values(by=['undefined_effort_diff'])
+mean = df.groupby('undefined_effort_diff')
+df[df['undefined_effort_diff_d'] == 1]['undefined_redist_diff']
+mean.plot.bar(y='nzsg_redist_diff', color=color, alpha=0.75)
+df[df['undefined_question_2'] != 0]['undefined_redist_diff'].plot.hist()
+df['nzsg_effort_diff'].max()
+df['undefined_redist_diff']
+for vign, color in zip(vignettes, colors):
+    mean = df.groupby(vign + '_effort_diff').mean()
+    b = mean.plot.bar(y=vign+'_redist_diff', color=color, alpha=0.75)
 
+    b.get_figure().savefig('statistics/output/graphs/' + vign + '_redist_vs_effort_diff.png', dpi=resolution)
+    plt.clf()
 
-
-
-
-# b.set_title("Redistrubted Amount '" + name + "'")
-# b.set_xlim(right=0.85)
-# b.set_ylim(top=35)
-# b.set_xlabel('Fraction Redistributed')
-
-
-#from scipy.stats import ks_2samp
 
 #redist_factor on bzsg_factor graph
 import seaborn as sns; sns.set(color_codes=True)
@@ -234,8 +241,3 @@ import seaborn as sns; sns.set(color_codes=True)
 ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df)
 ax1.set(xlabel='Belief in Zero-Sum', ylabel='Redistribution Preferences')
 ax1.get_figure().savefig('statistics/output/graphs/redist_on_bzsg_factors.png', dpi=resolution)
-
-
-
-
-df.corr(method='pearson')

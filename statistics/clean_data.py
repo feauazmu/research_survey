@@ -160,8 +160,9 @@ for index, row in df.iterrows():
         df.at[index, 'zsg_effort_diff'] = 0.099
         df.at[index, 'zsg_effort_diff_d'] = 0
 
-        df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
-        df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 20
+        if df.at[index, 'nzsg_question_2'] == 1:
+            df.at[index, 'nzsg_question_3'] = 1 - row['nzsg_question_3'] / 20
+            df.at[index, 'nzsg_question_4'] = 1 - row['nzsg_question_4'] / 20
         df.at[index, 'nzsg_effort_diff'] = 0.385
         df.at[index, 'nzsg_effort_diff_d'] = 1
 
@@ -172,8 +173,10 @@ for index, row in df.iterrows():
         df.at[index, 'undefined_effort_diff'] = .099
         df.at[index, 'undefined_effort_diff_d'] = 0
 
-        df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 20
-        df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 20
+        if df.at[index, 'zsg_question_2'] == 1:
+            df.at[index, 'zsg_question_3'] = 1 - row['zsg_question_3'] / 20
+            df.at[index, 'zsg_question_4'] = 1 - row['zsg_question_4'] / 20
+
         df.at[index, 'zsg_effort_diff'] = .385
         df.at[index, 'zsg_effort_diff_d'] = 1
 
@@ -184,8 +187,9 @@ for index, row in df.iterrows():
 
     if row['treatment'] in ['treatment_5', 'treatment_6']:
 
-        df.at[index, 'undefined_question_3'] = row['undefined_question_3'] / 20
-        df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 20
+        if df.at[index, 'undefined_question_2'] == 1:
+            df.at[index, 'undefined_question_3'] = 1 - row['undefined_question_3'] / 20
+            df.at[index, 'undefined_question_4'] = 1 - row['undefined_question_4'] / 20
         df.at[index, 'undefined_effort_diff'] = 0.385
         df.at[index, 'undefined_effort_diff_d'] = 1
 
@@ -234,3 +238,27 @@ for vign in vignettes:
     df[vign + '_question_1'] = (df[vign + '_question_1'] - 1)/6
 
 df.to_csv(index=True, path_or_buf='cleaned_data.csv')
+
+#test corrected data
+from scipy.stats import ks_2samp
+for vign in vignettes:
+    corrected_data = df[df[vign + '_effort_diff_d'] == 1]
+    right_data = df[df[vign + '_effort_diff_d'] == 0]
+    print(vign)
+    print('corrected N: ' + str(len(corrected_data)))
+    print('right N ' + str(len(right_data)))
+    corrected_data = corrected_data[corrected_data[vign + '_question_2'] == 1][vign + '_question_3']
+    right_data = right_data[right_data[vign + '_question_2'] == 1][vign + '_question_3']
+    A = right_data.plot.hist(bins=16, color='blue', alpha=0.50, weights=np.zeros_like(right_data) + 1. / right_data.size)
+    A = corrected_data.plot.hist(bins=16, color='red', alpha=0.50, weights=np.zeros_like(corrected_data) + 1. / corrected_data.size)
+    A.get_figure().savefig('statistics/output/correction/' + vign + '_correctedvsright_distribution.png')
+
+    print(ks_2samp(corrected_data, right_data))
+    plt.clf()
+
+    corrected_data = df[df['zsg_effort_diff_d'] == 1]
+    right_data = df[df['zsg_effort_diff_d'] == 0]
+    print(len(corrected_data))
+    print(len(right_data))
+    corrected_data = corrected_data[corrected_data['nzsg_question_2'] == 1][vign + '_question_3']
+    right_data = right_data[right_data['nzsg_question_2'] == 1][vign + '_question_3']
