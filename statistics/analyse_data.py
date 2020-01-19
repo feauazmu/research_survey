@@ -226,7 +226,7 @@ for i in [1]:
     plt.clf()
 
 #redist_diff graphs on effort_diff
-
+df[vign + '_redist_diff'] = 0
 for vign in vignettes:
     df[vign + '_redist_diff'] = (df[vign + '_question_4'] - df[vign + '_question_3'])
 a = df[['undefined_question_3', 'undefined_question_4', 'undefined_redist_diff']]
@@ -238,23 +238,57 @@ mean.plot.bar(y='nzsg_redist_diff', color=color, alpha=0.75)
 df[df['undefined_question_2'] != 0]['undefined_redist_diff'].plot.hist()
 df['nzsg_effort_diff'].max()
 df['undefined_redist_diff']
-
+plt.clf()
+i = 1
+means = []
+errors = []
 for vign, color in zip(vignettes, colors):
 
-    mean = df.groupby(vign + '_effort_diff').mean()
-    std = df.groupby(vign + '_effort_diff').std()
+    mean = (df.groupby(vign + '_effort_diff').mean())[vign + '_redist_diff']
+    std = df.groupby(vign + '_effort_diff').std()[vign + '_redist_diff']
     error = std*ci_value/np.sqrt(len(df))
-
-    b = mean.plot.bar(y=vign+'_redist_diff', color=color, alpha=0.75, yerr=error, align='center',ecolor='black', capsize=10)
+    means.append(mean)
+    errors.append(error)
+    b = mean.plot.bar( y=vign+'_redist_diff', color=color, alpha=0.75, yerr=error, align='center',ecolor='black', capsize=10,)
 
     b.set_title('Update on Effort Change')
-    b.set_ylabel('Change in Redistributed Amount [%]')
-    b.set_xlabel('Change in Effort [%]')
+    b.set_ylabel('Change in Redistributed Amount [p.p.]')
+    b.set_xlabel('Change in Effort [p.p.]')
     b.set_xticklabels([0.099, 0.333, 0.385],rotation=0)
     plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
     b.get_figure().savefig('statistics/output/graphs/' + vign + '_redist_vs_effort_diff.png', dpi=resolution)
+    i +1
     plt.clf()
+
+
+
+
+
+# Convert data to pandas DataFrame.
+for i in [1]:
+    df1 = pd.DataFrame(means).T
+    df2 = pd.DataFrame(errors).T
+    df2
+    df1
+    b = df1.plot.bar(color=colors, alpha=0.75, yerr=df2, align='center',ecolor='black', capsize=10)
+    b.set_title('Update on Effort Change')
+    b.set_ylabel('Change in Redistributed Amount [p.p.]')
+    b.set_xlabel('Change in Effort [p.p.]')
+    b.set_xticklabels([0.099, 0.333, 0.385],rotation=0)
+
+    plt.figtext(0.01, 0.01, '*95%-Confidence intervals', fontdict={'size': 'xx-small'})
+    b.axvline(1.5, color='black', linestyle='dashed', linewidth=0.8)
+    handles, labels = b.get_legend_handles_labels()
+    handles
+    b.legend(handles, vignette_names, loc="lower left")
+
+    plt.figtext(.67, .85, 'Winner works harder', fontdict={'size': 'small'})
+    plt.figtext(.4, .85, 'Loser works less', fontdict={'size': 'small'})
+
+    b.get_figure().savefig('statistics/output/graphs/redist_vs_effort_diff_summary.png', dpi=resolution)
+
+plt.clf()
 
 
 #redist_factor on bzsg_factor graph
@@ -263,3 +297,14 @@ import seaborn as sns; sns.set(color_codes=True)
 ax1 = sns.regplot(y='redist_factor', x='bzsg_factor', data=df)
 ax1.set(xlabel='Belief in Zero-Sum', ylabel='Redistribution Preferences')
 ax1.get_figure().savefig('statistics/output/graphs/redist_on_bzsg_factors.png', dpi=resolution)
+
+
+
+(df.mean()['nzsg_question_3']-df.mean()['zsg_question_3'])/df.mean()['zsg_question_3']
+
+
+avg = (df.mean()['nzsg_question_3']+df.mean()['zsg_question_3'])/2
+
+
+(df.mean()['undefined_question_3'] - avg)/avg
+(df.mean()['undefined_question_3']-df.mean()['nzsg_question_3'])/df.mean()['nzsg_question_3']
