@@ -24,6 +24,7 @@ df.groupby('treatment').mean()[['undefined_question_3', 'zsg_question_3', 'nzsg_
 df[df['treatment']== 'treatment_6']['undefined_question_3']
 #stata code
 controls =  'age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ C(treatment) + C(political_party)'
+controls_as_list = []
 #redist_factor on bzsg_factor
 mod = smf.ols(formula='redist_factor ~ bzsg_factor', data=df)
 res1 = mod.fit()
@@ -84,24 +85,28 @@ textfile = open('statistics/output/regressions/redist_amoun_on_redist_amounts.tx
 textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 print(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 textfile.close()
-
+df.columns
 #logit prob of redistribute
-logit = sm.Logit(df['undefined_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor', 'undefined_question_1']]))
-res1 = logit.fit()
-print(res1.summary())
+for vign in vignettes:
+    logit = smf.logit(formula=vign + '_question_2 ~ bzsg_factor ', data=df)
+    res1 = logit.fit()
+    print(res1.summary())
 
-logit = sm.Logit(df['zsg_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor', 'zsg_question_1']]))
-res2 = logit.fit()
-print(res2.summary())
+    logit = smf.logit(formula=vign + '_question_2 ~ bzsg_factor + redist_factor', data=df)
+    res2 = logit.fit()
+    print(res2.summary())
 
-logit = sm.Logit(df['nzsg_question_2'], sm.add_constant(df[[ 'bzsg_factor', 'redist_factor', 'nzsg_question_1']]))
-res3 = logit.fit()
+    logit = smf.logit(formula=vign + '_question_2 ~ bzsg_factor + redist_factor + ' + vign + '_question_1', data=df)
+    res3 = logit.fit()
 
+    logit = smf.logit(formula=vign + '_question_2 ~ bzsg_factor + redist_factor + ' + vign + '_question_1 + age + C(political_party) + C(gender) + C(field_of_work) + C(nationality)' , data=df)
+    res4 = logit.fit()
 
-textfile = open('statistics/output/regressions/logit_decide_to_redist_with_fairness.txt', 'w')
-textfile.write(summary_col([res1, res2, res3],stars=True,float_format='%0.2f',model_names=['undefined\n(0)','zsg\n(1)','non-zsg\n(2)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),  'Pseudo R2':lambda x: "{:.2f}".format(x.prsquared)}).as_latex())
-textfile.close()
+    textfile = open('statistics/output/regressions/'+ vign +'_logit_decide_to_redist.txt', 'w')
+    textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),  'Pseudo R2':lambda x: "{:.2f}".format(x.prsquared)}).as_latex())
+    textfile.close()
 
+df.groupby('education').count()
 
 
 
@@ -118,8 +123,11 @@ mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.
 mra.set_title('Vignettes: Fairness')
 mra.set_ylabel('How unfair')
 mra.set_xticklabels(vignette_names, rotation=0)
+plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
 mra.get_figure().savefig('statistics/output/graphs/Vignettes_Fairness.png', dpi=resolution)
+
+plt.clf()
 
 #Vignttes want to redistribute
 mean = df[['undefined_question_2', 'zsg_question_2', 'nzsg_question_2']].mean()
@@ -132,9 +140,10 @@ mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.
 mra.set_title('Vignettes: Redistribute')
 mra.set_ylabel('Fraction')
 mra.set_xticklabels(vignette_names, rotation=0)
+plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
 mra.get_figure().savefig('statistics/output/graphs/Vignettes_Redistribute.png', dpi=resolution)
-
+plt.clf()
 
 #Vignettes mean redistributed amount
 mean = df[['undefined_question_3', 'zsg_question_3', 'nzsg_question_3']].mean()
@@ -147,8 +156,10 @@ mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.
 mra.set_title('Vignettes: Mean Redistributed Amount')
 mra.set_ylabel('Fraction')
 mra.set_xticklabels(vignette_names, rotation=0)
+plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
 mra.get_figure().savefig('statistics/output/graphs/Vignettes_Mean_Redistributed_Amount.png', dpi=resolution)
+plt.clf()
 
 #Vignettes Updated redistributed amount
 mean = df[['undefined_question_4', 'zsg_question_4', 'nzsg_question_4']].mean()
@@ -161,10 +172,11 @@ mra.bar(vignette_names, mean, color=colors, yerr=error, align='center', alpha=0.
 mra.set_title('Vignettes: Updated Mean Redistributed Amount')
 mra.set_ylabel('Fraction')
 mra.set_xticklabels(vignette_names, rotation=0)
+plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
 mra.get_figure().savefig('statistics/output/graphs/Vignettes_Updated_Mean_Redistributed_Amount.png', dpi=resolution)
 
-
+plt.clf()
 #Distribution of reddistributed amount
 for name, color in zip(vignettes, colors):
     mean = df[df[name+'_question_2'] == 1][name+'_question_3'].mean()
@@ -179,7 +191,6 @@ for name, color in zip(vignettes, colors):
 
 
 #change between question 3 and 4
-
 df[df['undefined_question_3'] != df['undefined_question_4']]
 diff_3_4  =df[df[name+'_question_2'] == 1][name+'_question_3'] - df[df[name+'_question_2'] == 1][name+'_question_3']
 for name, color in zip(vignettes, colors):
@@ -227,9 +238,20 @@ mean.plot.bar(y='nzsg_redist_diff', color=color, alpha=0.75)
 df[df['undefined_question_2'] != 0]['undefined_redist_diff'].plot.hist()
 df['nzsg_effort_diff'].max()
 df['undefined_redist_diff']
+
 for vign, color in zip(vignettes, colors):
+
     mean = df.groupby(vign + '_effort_diff').mean()
-    b = mean.plot.bar(y=vign+'_redist_diff', color=color, alpha=0.75)
+    std = df.groupby(vign + '_effort_diff').std()
+    error = std*ci_value/np.sqrt(len(df))
+
+    b = mean.plot.bar(y=vign+'_redist_diff', color=color, alpha=0.75, yerr=error, align='center',ecolor='black', capsize=10)
+
+    b.set_title('Update on Effort Change')
+    b.set_ylabel('Change in Redistributed Amount [%]')
+    b.set_xlabel('Change in Effort [%]')
+    b.set_xticklabels([0.099, 0.333, 0.385],rotation=0)
+    plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
     b.get_figure().savefig('statistics/output/graphs/' + vign + '_redist_vs_effort_diff.png', dpi=resolution)
     plt.clf()
