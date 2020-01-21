@@ -85,6 +85,65 @@ textfile = open('statistics/output/regressions/redist_amoun_on_redist_amounts.tx
 textfile.write(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 print(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 textfile.close()
+
+#fairness on
+
+mod = smf.ols(formula='undefined_question_1 ~ '+ controls  +   ' + redist_factor + bzsg_factor ', data=df)
+
+res = mod.fit()
+print(res.summary())
+mod = smf.ols(formula='undefined_question_1 ~ bzsg_factor + redist_factor', data=df)
+
+res1 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_1 ~ bzsg_factor ', data=df)
+
+res2 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_1 ~ redist_factor' , data=df)
+
+res3 = mod.fit()
+print(res.summary())
+
+textfile = open('statistics/output/regressions/undefined_fairness_on_factors.txt', 'w')
+textfile.write(summary_col([res2, res3, res1, res],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res2, res3, res1, res],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
+
+#redist amount on interaction factor
+df['redistXfair'] = df['undefined_question_1']*df['redist_factor']
+mod = smf.ols(formula='undefined_question_3 ~ '+ ' + redist_factor ', data=df)
+
+res = mod.fit()
+print(res.summary())
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1', data=df)
+
+res1 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor  ', data=df)
+
+res2 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + redistXfair'  , data=df)
+
+res3 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ redistXfair '  , data=df)
+
+res4 = mod.fit()
+print(res.summary())
+
+textfile = open('statistics/output/regressions/undefined_redist_amount_on_interaction_factors.txt', 'w')
+textfile.write(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)', '\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
 df.columns
 #logit prob of redistribute
 for vign in vignettes:
@@ -253,8 +312,8 @@ for vign, color in zip(vignettes, colors):
 
     b.set_title('Update on Effort Change')
     b.set_ylabel('Change in Redistributed Amount [p.p.]')
-    b.set_xlabel('Change in Effort [p.p.]')
-    b.set_xticklabels([0.099, 0.333, 0.385],rotation=0)
+    b.set_xlabel('Change in Effort Difference [p.p.]')
+    b.set_xticklabels([9, 33, 38],rotation=0)
     plt.figtext(0.2, 0.01, '*95%-Confidence intervals', horizontalalignment='right', fontdict={'size': 'xx-small'})
 
     b.get_figure().savefig('statistics/output/graphs/' + vign + '_redist_vs_effort_diff.png', dpi=resolution)
@@ -265,17 +324,17 @@ for vign, color in zip(vignettes, colors):
 
 
 
-# Convert data to pandas DataFrame.
+#create redist vs effor diff summary
 for i in [1]:
-    df1 = pd.DataFrame(means).T
-    df2 = pd.DataFrame(errors).T
+    df1 = pd.DataFrame(means).T*100
+    df2 = pd.DataFrame(errors).T*100
     df2
     df1
     b = df1.plot.bar(color=colors, alpha=0.75, yerr=df2, align='center',ecolor='black', capsize=10)
     b.set_title('Update on Effort Change')
     b.set_ylabel('Change in Redistributed Amount [p.p.]')
-    b.set_xlabel('Change in Effort [p.p.]')
-    b.set_xticklabels([0.099, 0.333, 0.385],rotation=0)
+    b.set_xlabel('Change in Effort Difference [p.p.]')
+    b.set_xticklabels([9, 33, 38],rotation=0)
 
     plt.figtext(0.01, 0.01, '*95%-Confidence intervals', fontdict={'size': 'xx-small'})
     b.axvline(1.5, color='black', linestyle='dashed', linewidth=0.8)
