@@ -18,6 +18,9 @@ colors = ['#bc5090','#58508d','#FF6361' ]
 resolution = 1200
 ci_value = 1.96 #95% CI normal dist. z+ value
 
+
+
+
 #load data
 df = pd.read_csv('cleaned_data.csv')
 df.groupby('treatment').mean()[['undefined_question_3', 'zsg_question_3', 'nzsg_question_3']]
@@ -25,15 +28,31 @@ df[df['treatment']== 'treatment_6']['undefined_question_3']
 #stata code
 controls =  'age + C(gender) + C(education) + C(field_of_work) + C(nationality)+ C(treatment) + C(political_party)'
 controls_as_list = []
+
+
+df['nzsg_question_1'].mean()
+df['redist_d_avg'] = df['nzsg_question_2'] + df['zsg_question_2'] + df['undefined_question_2']
+df['redist_d_avg'].mean()/3
+
+df['fair_avg'] = df['nzsg_question_1'] + df['zsg_question_1'] + df['undefined_question_1']
+df['fair_avg'].mean()/3
+
+
+redist_df = df[['undefined_question_3', 'zsg_question_3', 'nzsg_question_3']]
+redist_df.std(axis=1).mean()
+redist_df[redist_df.sum(axis=1) != 0].std(axis=1).mean()
+
+
+redist_df.sum(axis=1)
 #redist_factor on bzsg_factor
-mod = smf.ols(formula='redist_factor ~ bzsg_factor', data=df)
+mod = smf.ols(formula='redist_factor_2 ~ bzsg_factor', data=df)
 res1 = mod.fit()
 
 
-mod = smf.ols(formula='redist_factor ~ ' + controls + ' + bzsg_factor', data=df)
+mod = smf.ols(formula='redist_factor_2 ~ ' + controls + ' + bzsg_factor', data=df)
 res2 = mod.fit()
 
-textfile = open('statistics/output/regressions/redist_on_bzsg_factors.txt', 'w')
+textfile = open('statistics/output/regressions/redist_2_on_bzsg_factors.txt', 'w')
 textfile.write(summary_col([res1, res2],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 
 textfile.close()
@@ -55,6 +74,26 @@ for vign in vignettes:
     print(summary_col([res1, res2, res3, res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
                              'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
     textfile.close()
+
+for vign in vignettes:
+    mod = smf.ols(formula=vign + '_question_3 ~ redist_factor_2', data=df)
+    res1 = mod.fit()
+    mod = smf.ols(formula=vign + '_question_3 ~ bzsg_factor + redist_factor_2', data=df)
+    res2 = mod.fit()
+    mod = smf.ols(formula=vign + '_question_3 ~ bzsg_factor + redist_factor_2 + redist_factor', data=df)
+    res3 = mod.fit()
+    mod = smf.ols(formula=vign + '_question_3 ~ bzsg_factor + redist_factor_2 + redist_factor+ ' + vign + '_question_1', data=df)
+    res4 = mod.fit()
+    mod = smf.ols(formula=vign + '_question_3 ~ bzsg_factor + redist_factor_2 + redist_factor+ ' + vign + '_question_1 + ' + controls, data=df)
+    res5 = mod.fit()
+    textfile = open('statistics/output/regressions/' + vign + '_redist_amoun_on_factor_2.txt', 'w')
+    textfile.write(summary_col([res1, res2, res3, res4, res5],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                             'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+    print(summary_col([res1, res2, res3, res4, res5],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),
+                             'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+    textfile.close()
+
+
 
 #redistributed amount on
 mod = smf.ols(formula='undefined_question_3 ~ '+ controls  +   ' + nzsg_question_1 + redist_factor + bzsg_factor ', data=df)
@@ -112,9 +151,9 @@ textfile.write(summary_col([res2, res3, res1, res],stars=True,float_format='%0.2
 print(summary_col([res2, res3, res1, res],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 textfile.close()
 
-
+df.groupby.plot.bar(x='undefined_question_1', y='undefined_question_2')
 #redist amount on interaction factor
-df['redistXfair'] = df['undefined_question_1']*df['redist_factor']
+
 mod = smf.ols(formula='undefined_question_3 ~ '+ ' + redist_factor ', data=df)
 
 res = mod.fit()
@@ -134,7 +173,7 @@ mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_fact
 res3 = mod.fit()
 print(res.summary())
 
-mod = smf.ols(formula='undefined_question_3 ~ redistXfair '  , data=df)
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + redistXfair + ' + controls , data=df)
 
 res4 = mod.fit()
 print(res.summary())
@@ -143,6 +182,56 @@ textfile = open('statistics/output/regressions/undefined_redist_amount_on_intera
 textfile.write(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 print(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)', '\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
 textfile.close()
+
+
+
+df['redistXfair'] = df['undefined_question_1']*df['redist_factor']
+df['fair2'] = (df['bzsg_factor'] + df['redist_factor'] )*df['undefined_question_1']
+
+#fair squared
+mod = smf.ols(formula='undefined_question_3 ~ '+ ' + redist_factor ', data=df)
+
+res = mod.fit()
+print(res.summary())
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1', data=df)
+
+res1 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor  ', data=df)
+
+res2 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~  bzsg_factor+redist_factor + fair2'  , data=df)
+
+res3 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor +undefined_question_1 + redist_factor + fair2 ' , data=df)
+
+res4 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='  undefined_question_3 ~  bzsg_factor +undefined_question_1 + redist_factor + redistXfair ' , data=df)
+
+res5 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='  undefined_question_3 ~ fair2 + bzsg_factor +undefined_question_1 + redist_factor + redistXfair ' , data=df)
+
+res6 = mod.fit()
+
+
+textfile = open('statistics/output/regressions/undefined_redist_amount_on_interaction_factors_fairSq.txt', 'w')
+textfile.write(summary_col([res, res1, res2, res3,res4, res5,res6],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)','\n(5)','\n(6)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res, res1, res2, res3,res4,res5, res6],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)', '\n(4)','\n(5)', '\n(6)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
+
+
+
+
 
 df.columns
 #logit prob of redistribute
@@ -284,6 +373,73 @@ for i in [1]:
     test.get_figure().savefig('statistics/output/graphs/' + 'believersvsnon.png', dpi=resolution)
     plt.clf()
 
+
+#redist amount on interaction factor
+
+mod = smf.ols(formula='undefined_question_3 ~ '+ ' + redist_factor ', data=zsg_believers)
+
+res = mod.fit()
+print(res.summary())
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1', data=zsg_believers)
+
+res1 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor  ', data=zsg_believers)
+
+res2 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + bzsg_factor'  , data=zsg_believers)
+
+res3 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + bzsg_factor+ redistXfair + ' + controls , data=zsg_believers)
+
+res4 = mod.fit()
+print(res.summary())
+
+textfile = open('statistics/output/regressions/undefined_redist_amount_on_interaction_factors_BELIEVERS.txt', 'w')
+textfile.write(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)', '\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
+
+#zsg_non_believers regression
+
+mod = smf.ols(formula='undefined_question_3 ~ '+ ' + redist_factor ', data=zsg_non_believers)
+
+res = mod.fit()
+print(res.summary())
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1', data=zsg_non_believers)
+
+res1 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ bzsg_factor  ', data=zsg_non_believers)
+
+res2 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + bzsg_factor'  , data=zsg_non_believers)
+
+res3 = mod.fit()
+print(res.summary())
+
+mod = smf.ols(formula='undefined_question_3 ~ undefined_question_1 + redist_factor + bzsg_factor+ redistXfair + ' + controls , data=zsg_non_believers)
+
+res4 = mod.fit()
+print(res.summary())
+
+textfile = open('statistics/output/regressions/undefined_redist_amount_on_interaction_factors_NONBELIEVERS.txt', 'w')
+textfile.write(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)','\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+print(summary_col([res, res1, res2, res3,res4],stars=True,float_format='%0.2f',model_names=['\n(0)','\n(1)','\n(2)','\n(3)', '\n(4)'], info_dict={'N':lambda x: "{0:d}".format(int(x.nobs)),'R2':lambda x: "{:.2f}".format(x.rsquared)}).as_latex())
+textfile.close()
+
+
+
+
 #redist_diff graphs on effort_diff
 df[vign + '_redist_diff'] = 0
 for vign in vignettes:
@@ -367,3 +523,59 @@ avg = (df.mean()['nzsg_question_3']+df.mean()['zsg_question_3'])/2
 
 (df.mean()['undefined_question_3'] - avg)/avg
 (df.mean()['undefined_question_3']-df.mean()['nzsg_question_3'])/df.mean()['nzsg_question_3']
+
+
+
+
+
+
+#T-test
+import numpy as np
+from scipy import stats
+
+
+## Define 2 random distributions
+
+#Gaussian distributed data with mean = 2 and var = 1
+a = df['zsg_question_3']
+#Gaussian distributed data with with mean = 0 and var = 1
+b = df['nzsg_question_3']
+
+
+## Cross Checking with the internal scipy function
+t2, p2 = stats.ttest_ind(a,b)
+print("t = " + str(t2))
+print("p = " + str(p2))
+
+df.corr(method='pearson')['redist_factor_2']
+
+
+
+#calibration model#
+
+def theta_estimator(theta, effort_winner):
+
+    return theta*0.2 + (1-theta)*(1/effort_winner)
+
+def squarederrors(theta, y, endo):
+    """inputs
+    theta: variable w.r.t. optimize
+    y: actual value as DataFrame
+    endo: edogenous variables for expected value as DataFrame
+    """
+
+    sum = 0
+    for true, en in zip(y, endo):
+        sum += (true - theta_estimator(theta, en))**2
+    return sum
+
+
+
+
+import scipy
+
+for vign in vignettes:
+    print(vign)
+    a = scipy.optimize.fmin(squarederrors,x0 = 0.5, args=(df[vign + '_question_3'], df[vign + '_effort_winner'],))
+    print('theta = ' + str(a))
+    print()

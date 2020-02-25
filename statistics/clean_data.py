@@ -112,7 +112,7 @@ b.sum()
 df['bzsg_factor'] = np.dot(df_nbzsg, pd.DataFrame(fa.loadings_))
 
 #redist
-fa = FactorAnalyzer(n_factors = 1, rotation=None)
+fa = FactorAnalyzer(n_factors = 2, rotation=None)
 fa.fit(df_nredist)
 # Check Eigenvalues
 ev, v = fa.get_eigenvalues()
@@ -130,12 +130,15 @@ plt.plot(range(1,df_nredist.shape[1]+1),ev)
 pd.DataFrame(fa.get_factor_variance())
 a = pd.DataFrame(fa.loadings_)
 a.sum()
+fa.loadings_[:,0]
 # Get variance of each factors
 #pd.DataFrame(fa.get_factor_variance())
 #pd.DataFrame(fa.loadings_)
 #create factor
-df['redist_factor'] = -np.dot(df_nredist, pd.DataFrame(fa.loadings_))
-
+df['redist_factor'] = np.dot(df_nredist, pd.DataFrame(fa.loadings_[:,0]))
+df['redist_factor'].min()
+df['redist_factor_2'] = np.dot(df_nredist, pd.DataFrame(fa.loadings_[:,1]))
+df['redist_factor_2'].max()
 #norm payments by treatment
 df['undefined_effort_diff'] = 0.0
 df['zsg_effort_diff'] = 0.0
@@ -143,6 +146,15 @@ df['nzsg_effort_diff'] = 0.0
 df['undefined_effort_diff_d'] = 0
 df['zsg_effort_diff_d'] = 0
 df['nzsg_effort_diff_d'] = 0
+
+
+df['undefined_effort_winner'] = 0
+df['zsg_effort_winner'] = 0
+df['nzsg_effort_winner'] = 0
+
+df['undefined_effort_loser'] = 0
+df['zsg_effort_loser'] = 0
+df['nzsg_effort_loser'] = 0
 
 df['undefined_effort_diff'].max()
 df['undefined_question_3'].max()
@@ -156,12 +168,15 @@ for index, row in df.iterrows():
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 800
         df.at[index, 'undefined_effort_diff'] = 0.333
         df.at[index, 'undefined_effort_diff_d'] = 0
+        df.at[index, 'undefined_effort_winner'] = 6
+        df.at[index, 'undefined_effort_loser'] = 4
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 50
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 50
         df.at[index, 'zsg_effort_diff'] = 0.099
         df.at[index, 'zsg_effort_diff_d'] = 0
-
+        df.at[index, 'zsg_effort_winner'] = 142
+        df.at[index, 'zsg_effort_loser'] = 105
         if df.at[index, 'nzsg_question_2'] == 1:
             if df.at[index, 'nzsg_question_3'] < .26*20*0:
                 df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 20
@@ -171,6 +186,8 @@ for index, row in df.iterrows():
                 df.at[index, 'nzsg_question_4'] = 1 - row['nzsg_question_4'] / 20
         df.at[index, 'nzsg_effort_diff'] = 0.385
         df.at[index, 'nzsg_effort_diff_d'] = 1
+        df.at[index, 'nzsg_effort_winner'] = 17
+        df.at[index, 'nzsg_effort_loser'] = 13
 
     if row['treatment'] in ['treatment_3', 'treatment_4']:
 
@@ -178,6 +195,8 @@ for index, row in df.iterrows():
         df.at[index, 'undefined_question_4'] = row['undefined_question_4'] / 50
         df.at[index, 'undefined_effort_diff'] = .099
         df.at[index, 'undefined_effort_diff_d'] = 0
+        df.at[index, 'undefined_effort_winner'] = 142
+        df.at[index, 'undefined_effort_loser'] = 105
 
         if df.at[index, 'zsg_question_2'] == 1:
             if df.at[index, 'zsg_question_3'] < .44*20*0:
@@ -188,11 +207,15 @@ for index, row in df.iterrows():
                 df.at[index, 'zsg_question_4'] = 1 - row['zsg_question_4'] / 20
         df.at[index, 'zsg_effort_diff'] = .385
         df.at[index, 'zsg_effort_diff_d'] = 1
+        df.at[index, 'zsg_effort_winner'] = 17
+        df.at[index, 'zsg_effort_loser'] = 13
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 800
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 800
         df.at[index, 'nzsg_effort_diff'] = .333
         df.at[index, 'nzsg_effort_diff_d'] = 0
+        df.at[index, 'nzsg_effort_winner'] = 6
+        df.at[index, 'nzsg_effort_loser'] = 4
 
     if row['treatment'] in ['treatment_5', 'treatment_6']:
 
@@ -205,17 +228,22 @@ for index, row in df.iterrows():
                 df.at[index, 'undefined_question_4'] = 1 - row['undefined_question_4'] / 20
         df.at[index, 'undefined_effort_diff'] = 0.385
         df.at[index, 'undefined_effort_diff_d'] = 1
+        df.at[index, 'undefined_effort_winner'] = 17
+        df.at[index, 'undefined_effort_loser'] = 13
 
         df.at[index, 'zsg_question_3'] = row['zsg_question_3'] / 800
         df.at[index, 'zsg_question_4'] = row['zsg_question_4'] / 800
         df.at[index, 'zsg_effort_diff'] = .333
         df.at[index, 'zsg_effort_diff_d'] = 0
+        df.at[index, 'zsg_effort_winner'] = 6
+        df.at[index, 'zsg_effort_loser'] = 4
 
         df.at[index, 'nzsg_question_3'] = row['nzsg_question_3'] / 50
         df.at[index, 'nzsg_question_4'] = row['nzsg_question_4'] / 50
         df.at[index, 'nzsg_effort_diff'] = .099
         df.at[index, 'nzsg_effort_diff_d'] = 0
-
+        df.at[index, 'nzsg_effort_winner'] = 142
+        df.at[index, 'nzsg_effort_loser'] = 105
 #create useful columns
 df['counter'] = 1
 df['diff_zs_nzs'] = df['zsg_question_3'] - df['nzsg_question_3']
@@ -237,7 +265,7 @@ drop_cols = []
 drop_cols = [c for c in df.columns if c.lower()[:4] in ['bzsg', 'redi']]
 drop_cols.remove('bzsg_factor')
 drop_cols.remove('redist_factor')
-
+drop_cols.remove('redist_factor_2')
 #drop_cols.append('Unnamed: 0')
 drop_cols.append('zero_redist1')
 df = df.drop(columns=drop_cols)
@@ -245,7 +273,8 @@ df = df.drop(columns=drop_cols)
 #normalize factors
 df['bzsg_factor']= -df['bzsg_factor']/3.887762
 df['redist_factor'] = df['redist_factor']/1.871011
-
+df['redist_factor_2'] = df['redist_factor_2']/0.5674048988938794
+df['redist_factor'].max()
 #normalize question 1 fairness
 for vign in vignettes:
     df[vign + '_question_1'] = (df[vign + '_question_1'] - 1)/6
